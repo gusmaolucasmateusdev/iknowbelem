@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Onde praticar esportes em Belém?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f4ef;
+    color:#111;
+    overflow-x:hidden;
+    font-family:'Montserrat',sans-serif;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    width:100%;
+    height:50vh;
+    background:
+    linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)),
+    url("imagens/belem-hero.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    width:90%;
+    max-width:900px;
+}
+
+.hero-content h1{
+    font-family:'Cormorant Garamond',serif;
+    color:#fff;
+    font-size:74px;
+    font-weight:300;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    color:#e8e8e8;
+    font-size:12px;
+    letter-spacing:5px;
+    line-height:2;
+    text-transform:uppercase;
+}
+
+/* ===========================
+   SEÇÃO
+=========================== */
+
+.programacao-section{
+    width:100%;
+    max-width:1300px;
+    margin:auto;
+    padding:90px 6%;
+}
+
+.section-intro{
+    text-align:center;
+    font-size:12px;
+    letter-spacing:5px;
+    color:#a58f72;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:58px;
+    font-weight:300;
+    color:#111;
+    margin-bottom:20px;
+}
+
+.section-description{
+    max-width:750px;
+    margin:auto;
+    text-align:center;
+    color:#666;
+    line-height:2;
+    font-size:15px;
+    margin-bottom:50px;
+}
+
+/* ===========================
+   PESQUISA + FILTROS
+=========================== */
+
+.filters-container{
+    max-width:900px;
+    margin:0 auto 60px auto;
+}
+
+/* ===========================
+   BARRA DE PESQUISA
+=========================== */
+
+.search-container{
+    width:100%;
+    position:relative;
+    margin-bottom:18px;
+}
+
+.search-input{
+    width:100%;
+    padding:18px 25px 18px 55px;
+    background:#fff;
+    border:1px solid rgba(165,143,114,0.3);
+    border-radius:4px;
+    font-family:'Montserrat',sans-serif;
+    font-size:14px;
+    color:#111;
+    outline:none;
+    box-shadow:0 4px 20px rgba(0,0,0,0.03);
+    transition:0.3s;
+}
+
+.search-input:focus{
+    border-color:#a58f72;
+    box-shadow:0 6px 25px rgba(165,143,114,0.12);
+}
+
+.search-icon{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#a58f72;
+    font-size:16px;
+    pointer-events:none;
+}
+
+/* ===========================
+   FILTROS
+=========================== */
+
+.category-filter{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+.filter-btn{
+    padding:12px 20px;
+    background:transparent;
+    border:1px solid rgba(165,143,114,0.45);
+    color:#555;
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.filter-btn:hover{
+    border-color:#111;
+    color:#111;
+}
+
+.filter-btn.active{
+    background:#111;
+    border-color:#111;
+    color:#fff;
+}
+
+/* ===========================
+   NENHUM RESULTADO
+=========================== */
+
+.no-results{
+    display:none;
+    text-align:center;
+    grid-column:1 / -1;
+    padding:50px 0;
+    color:#777;
+    font-size:15px;
+    font-style:italic;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.events-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));
+    justify-content:start;
+    gap:45px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.event-card{
+    background:#fff;
+    border-radius:5px;
+    overflow:hidden;
+    border:1px solid rgba(165,143,114,.15);
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+    transition:.35s;
+    width:100%;
+}
+
+.event-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+}
+
+/* ===========================
+   IMAGEM
+=========================== */
+
+.event-image{
+    width:100%;
+    height:320px;
+    overflow:hidden;
+}
+
+.event-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    transition:0.4s ease;
+}
+
+.event-card:hover .event-image img{
+    transform:scale(1.05);
+}
+
+/* ===========================
+   CONTEÚDO
+=========================== */
+
+.event-content{
+    padding:35px;
+}
+
+.event-day{
+    display:block;
+    font-size:11px;
+    color:#a58f72;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.event-content h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:36px;
+    font-weight:400;
+    margin-bottom:18px;
+}
+
+.event-content p{
+    color:#666;
+    line-height:1.9;
+    font-size:14px;
+}
+
+/* ===========================
+   BOTÃO
+=========================== */
+
+.card-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 34px;
+    border:1px solid #111;
+    color:#111;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    transition:.3s;
+}
+
+.card-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+/* ===========================
+   BOTÃO HOME
+=========================== */
+
+.gallery-btn{
+    display:block;
+    width:fit-content;
+    margin:80px auto 0;
+    padding:12px 35px;
+    border:1px solid #111;
+    text-decoration:none;
+    color:#111;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:500;
+    text-align:center;
+    transition:0.3s ease;
+}
+
+.gallery-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:900px){
+
+    .hero{
+        height:40vh;
+        background-attachment:scroll;
+    }
+
+    .hero-content h1{
+        font-size:52px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .events-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .hero-content p{
+        font-size:11px;
+        letter-spacing:3px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .programacao-section{
+        padding:70px 7%;
+    }
+
+    .event-content{
+        padding:28px;
+    }
+
+    .category-filter{
+        gap:7px;
+    }
+
+    .filter-btn{
+        padding:10px 14px;
+        font-size:9px;
+        letter-spacing:1.5px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="programacao-section">
+
+    <div class="section-intro">
+        Futebol • Corrida de rua • Beach tennis
+    </div>
+
+    <h2 class="section-title">
+        Principais arenas e complexos esportivos
+    </h2>
+
+
+    <!-- ===========================
+         PESQUISA + FILTROS
+    ============================ -->
+
+    <div class="filters-container">
+
+        <!-- PESQUISA -->
+
+        <div class="search-container">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Pesquisar por nome ou categoria..."
+            >
+
+        </div>
+
+
+        <!-- FILTROS -->
+
+        <div class="category-filter">
+
+            <button class="filter-btn active" data-category="todos">
+                Todos
+            </button>
+
+            <button class="filter-btn" data-category="corrida">
+                Corrida de rua
+            </button>
+
+            <button class="filter-btn" data-category="ciclismo">
+                Ciclismo
+            </button>
+
+            <button class="filter-btn" data-category="futebol">
+                Futebol
+            </button>
+
+            <button class="filter-btn" data-category="volei">
+                Vôlei
+            </button>
+
+            <button class="filter-btn" data-category="futevolei">
+                Futevôlei
+            </button>
+
+            <button class="filter-btn" data-category="beachtennis">
+                Beach Tennis
+            </button>
+
+            <button class="filter-btn" data-category="tenis">
+                Tênis / Pickleball
+            </button>
+
+            <button class="filter-btn" data-category="golfe">
+                Golfe
+            </button>
+
+            <button class="filter-btn" data-category="funcional">
+                Funcional
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===========================
+         CARDS
+    ============================ -->
+
+    <div class="events-grid" id="eventsGrid">
+
+
+        <!-- PARQUE DO UTINGA -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img src="parquedoutinga.jpeg" alt="Parque do Utinga">
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    CORRIDA DE RUA E CICLISMO
+                </span>
+
+                <h3>Parque do Utinga</h3>
+
+                <p>
+                    Uma gigante área de preservação ambiental no coração da cidade, perfeita para caminhadas, corridas, passeios de bicicleta, contato com a natureza e atividades ao ar livre.
+                </p>
+
+                <a href="https://www.instagram.com/ikobelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PARQUE DA CIDADE -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img src="parquedacidade.jpeg" alt="Parque da Cidade">
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    CORRIDA DE RUA E CICLISMO
+                </span>
+
+                <h3>Parque da Cidade</h3>
+
+                <p>
+                    Um dos maiores e mais modernos espaços de lazer, esporte e cultura de Belém, localizado na área do antigo Aeroclube. Conta com pista de caminhada, ciclovias e praças.
+                </p>
+
+                <a href="https://www.instagram.com/ikobelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PORTAL DA AMAZÔNIA -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img src="portaldaamazonia.jpeg" alt="Portal da Amazônia">
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    CORRIDA DE RUA E CICLISMO
+                </span>
+
+                <h3>Portal da Amazônia</h3>
+
+                <p>
+                    Orla moderna às margens do Rio Guamá, ideal para praticar esportes, apreciar o pôr do sol, passear em família e aproveitar a brisa da cidade.
+                </p>
+
+                <a href="https://www.instagram.com/ikobelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RUA DA MARINHA -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img src="ruadamarinha.jpeg" alt="Rua da Marinha">
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    CORRIDA DE RUA
+                </span>
+
+                <h3>Rua da Marinha</h3>
+
+                <p>
+                    Tradicional via do bairro da Marambaia que passou por grande revitalização, transformando-se em um importante corredor de mobilidade para caminhadas e corrida.
+                </p>
+
+                <a href="https://www.instagram.com/ikobelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORLA DE ICOARACI -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img src="fim-do-dia.jpeg" alt="Orla de Icoaraci">
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    CORRIDA DE RUA E CICLISMO
+                </span>
+
+                <h3>Orla de Icoaraci</h3>
+
+                <p>
+                    Famosa por seu pôr do sol incrível, é um ótimo lugar para passeios, caminhadas e pedaladas. Trecho passa por obras de revitalização, mas segue aberta ao lazer.
+                </p>
+
+                <a href="https://www.instagram.com/ikobelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARENA PARK -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    FUTEBOL, VÔLEI E FUTEVÔLEI
+                </span>
+
+                <h3>Arena Park</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/arenaparkbelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARENA COMPLEXO DA AMAZÔNIA -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    FUTEBOL
+                </span>
+
+                <h3>Arena Complexo da Amazônia</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/complexoarenaamazonia/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RACKET CLUB -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    TÊNIS, TOUCHTENNIS E PICKLEBALL
+                </span>
+
+                <h3>Racket Club</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/racketclubbelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- AMAZON COUNTRY CLUB -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    CAMPO DE FUTEBOL E GOLFE
+                </span>
+
+                <h3>Amazon Country Club</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/amazon_countryclub/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARENA 28 -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    BEACH TENNIS
+                </span>
+
+                <h3>Arena 28</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/club28.bt/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARENA PRIME -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    BEACH TENNIS
+                </span>
+
+                <h3>Arena Prime</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/arenaprimeresidencial/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MONTENEGRO BEACH -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    BEACH TENNIS, FUTVÔLEI, VÔLEI E FUNCIONAL
+                </span>
+
+                <h3>Montenegro Beach</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/arenamontenegrobeach/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARENA 500 -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VÔLEI, FUTVÔLEI E BEACH TENNIS
+                </span>
+
+                <h3>Arena 500</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/arena500_/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- NENHUM RESULTADO -->
+
+        <div class="no-results" id="noResultsMsg">
+            Nenhum local encontrado para a sua busca.
+        </div>
+
+    </div>
+
+
+    <!-- HOME -->
+
+    <a href="index.html" class="gallery-btn">
+        HOME
+    </a>
+
+</section>
+
+
+<!-- ===========================
+     SCRIPT DE PESQUISA + FILTRO
+=========================== -->
+
+<script>
+
+const searchInput =
+    document.getElementById('searchInput');
+
+const filterButtons =
+    document.querySelectorAll('.filter-btn');
+
+const cards =
+    document.querySelectorAll('.event-card');
+
+const noResultsMsg =
+    document.getElementById('noResultsMsg');
+
+let selectedCategory = 'todos';
+
+
+/* ===========================
+   PESQUISA
+=========================== */
+
+searchInput.addEventListener('input', filterPlaces);
+
+
+/* ===========================
+   BOTÕES DE FILTRO
+=========================== */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener('click', function(){
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        this.classList.add('active');
+
+        selectedCategory =
+            this.getAttribute('data-category');
+
+        filterPlaces();
+
+    });
+
+});
+
+
+/* ===========================
+   NORMALIZAR TEXTO
+=========================== */
+
+function normalizeText(text){
+
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+/* ===========================
+   FILTRO PRINCIPAL
+=========================== */
+
+function filterPlaces(){
+
+    const searchText =
+        normalizeText(searchInput.value);
+
+    let visibleCount = 0;
+
+
+    cards.forEach(card => {
+
+        const cardText =
+            normalizeText(card.innerText);
+
+        const categoryElement =
+            card.querySelector('.event-day');
+
+        const category =
+            categoryElement
+                ? normalizeText(categoryElement.innerText)
+                : "";
+
+
+        /* ===========================
+           PESQUISA
+        =========================== */
+
+        const matchesSearch =
+            cardText.includes(searchText);
+
+
+        /* ===========================
+           CATEGORIA
+        =========================== */
+
+        let matchesCategory = true;
+
+
+        if(selectedCategory !== 'todos'){
+
+            switch(selectedCategory){
+
+                case 'corrida':
+
+                    matchesCategory =
+                        category.includes('corrida de rua');
+
+                    break;
+
+
+                case 'ciclismo':
+
+                    matchesCategory =
+                        category.includes('ciclismo');
+
+                    break;
+
+
+                case 'futebol':
+
+                    matchesCategory =
+                        category.includes('futebol');
+
+                    break;
+
+
+                case 'volei':
+
+                    matchesCategory =
+                        category.includes('volei');
+
+                    break;
+
+
+                case 'futevolei':
+
+                    matchesCategory =
+                        category.includes('futevolei');
+
+                    break;
+
+
+                case 'beachtennis':
+
+                    matchesCategory =
+                        category.includes('beach tennis');
+
+                    break;
+
+
+                case 'tenis':
+
+                    matchesCategory =
+                        category.includes('tenis') ||
+                        category.includes('pickleball');
+
+                    break;
+
+
+                case 'golfe':
+
+                    matchesCategory =
+                        category.includes('golfe');
+
+                    break;
+
+
+                case 'funcional':
+
+                    matchesCategory =
+                        category.includes('funcional');
+
+                    break;
+
+            }
+
+        }
+
+
+        /* ===========================
+           MOSTRAR / ESCONDER
+        =========================== */
+
+        if(matchesSearch && matchesCategory){
+
+            card.style.display = "";
+
+            visibleCount++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    /* ===========================
+       NENHUM RESULTADO
+    =========================== */
+
+    if(visibleCount === 0){
+
+        noResultsMsg.style.display = "block";
+
+    }else{
+
+        noResultsMsg.style.display = "none";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Onde comprar em Belém?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f4ef;
+    color:#111;
+    overflow-x:hidden;
+    font-family:'Montserrat',sans-serif;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    width:100%;
+    height:50vh;
+    background:
+    linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)),
+    url("imagens/belem-hero.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    width:90%;
+    max-width:900px;
+}
+
+.hero-content h1{
+    font-family:'Cormorant Garamond',serif;
+    color:#fff;
+    font-size:74px;
+    font-weight:300;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    color:#e8e8e8;
+    font-size:12px;
+    letter-spacing:5px;
+    line-height:2;
+    text-transform:uppercase;
+}
+
+/* ===========================
+   SEÇÃO
+=========================== */
+
+.programacao-section{
+    width:100%;
+    max-width:1300px;
+    margin:auto;
+    padding:90px 6%;
+}
+
+.section-intro{
+    text-align:center;
+    font-size:12px;
+    letter-spacing:5px;
+    color:#a58f72;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:58px;
+    font-weight:300;
+    color:#111;
+    margin-bottom:20px;
+}
+
+.section-description{
+    max-width:750px;
+    margin:auto;
+    text-align:center;
+    color:#666;
+    line-height:2;
+    font-size:15px;
+    margin-bottom:50px;
+}
+
+/* ===========================
+   ÁREA DE PESQUISA E FILTRO
+=========================== */
+
+.filters-container{
+    max-width:900px;
+    margin:0 auto 60px auto;
+}
+
+/* ===========================
+   PESQUISA
+=========================== */
+
+.search-container{
+    width:100%;
+    position:relative;
+    margin-bottom:18px;
+}
+
+.search-input{
+    width:100%;
+    padding:18px 25px 18px 55px;
+    background:#fff;
+    border:1px solid rgba(165,143,114,0.3);
+    border-radius:4px;
+    font-family:'Montserrat',sans-serif;
+    font-size:14px;
+    color:#111;
+    outline:none;
+    box-shadow:0 4px 20px rgba(0,0,0,0.03);
+    transition:0.3s;
+}
+
+.search-input:focus{
+    border-color:#a58f72;
+    box-shadow:0 6px 25px rgba(165,143,114,0.12);
+}
+
+.search-icon{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#a58f72;
+    font-size:16px;
+    pointer-events:none;
+}
+
+/* ===========================
+   FILTRO
+=========================== */
+
+.category-filter{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+.filter-btn{
+    padding:12px 20px;
+    background:transparent;
+    border:1px solid rgba(165,143,114,0.45);
+    color:#555;
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.filter-btn:hover{
+    border-color:#111;
+    color:#111;
+}
+
+.filter-btn.active{
+    background:#111;
+    border-color:#111;
+    color:#fff;
+}
+
+/* ===========================
+   MENSAGEM DE NENHUM RESULTADO
+=========================== */
+
+.no-results{
+    display:none;
+    text-align:center;
+    grid-column:1 / -1;
+    padding:50px 0;
+    color:#777;
+    font-size:15px;
+    font-style:italic;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.events-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));
+    justify-content:start;
+    gap:45px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.event-card{
+    background:#fff;
+    border-radius:5px;
+    overflow:hidden;
+    border:1px solid rgba(165,143,114,.15);
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+    transition:.35s;
+    width:100%;
+}
+
+.event-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+}
+
+/* ===========================
+   CONTEÚDO
+=========================== */
+
+.event-content{
+    padding:35px;
+}
+
+.event-day{
+    display:block;
+    font-size:11px;
+    color:#a58f72;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.event-content h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:36px;
+    font-weight:400;
+    margin-bottom:18px;
+}
+
+.event-content p{
+    color:#666;
+    line-height:1.9;
+    font-size:14px;
+}
+
+/* ===========================
+   BOTÃO DO CARD
+=========================== */
+
+.card-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 34px;
+    border:1px solid #111;
+    color:#111;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    transition:.3s;
+}
+
+.card-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+/* ===========================
+   BOTÃO HOME
+=========================== */
+
+.gallery-btn{
+    display:block;
+    width:fit-content;
+    margin:80px auto 0;
+    padding:12px 35px;
+    border:1px solid #111;
+    text-decoration:none;
+    color:#111;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:500;
+    text-align:center;
+    transition:0.3s ease;
+}
+
+.gallery-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:900px){
+
+    .hero{
+        height:40vh;
+        background-attachment:scroll;
+    }
+
+    .hero-content h1{
+        font-size:52px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .events-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .hero-content p{
+        font-size:11px;
+        letter-spacing:3px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .programacao-section{
+        padding:70px 7%;
+    }
+
+    .event-content{
+        padding:28px;
+    }
+
+    .category-filter{
+        gap:7px;
+    }
+
+    .filter-btn{
+        padding:10px 14px;
+        font-size:9px;
+        letter-spacing:1.5px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="programacao-section">
+
+    <div class="section-intro">
+        Turismo • Compras • Lojas
+    </div>
+
+    <h2 class="section-title">
+        Principais lojas
+    </h2>
+
+
+
+    <!-- ===========================
+         PESQUISA + FILTROS
+    ============================ -->
+
+    <div class="filters-container">
+
+        <!-- BARRA DE PESQUISA -->
+
+        <div class="search-container">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Pesquisar por nome ou categoria..."
+            >
+
+        </div>
+
+
+        <!-- FILTROS DE CATEGORIA -->
+
+        <div class="category-filter">
+
+            <button class="filter-btn active" data-category="todos">
+                Todos
+            </button>
+
+            <button class="filter-btn" data-category="vestuario">
+                Vestuário
+            </button>
+
+            <button class="filter-btn" data-category="floricultura">
+                Floriculturas
+            </button>
+
+            <button class="filter-btn" data-category="carros">
+                Carros
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===========================
+         CARDS
+    ============================ -->
+
+    <div class="events-grid" id="eventsGrid">
+
+
+        <!-- SIERRA -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VESTUÁRIO
+                </span>
+
+                <h3>Sierra</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/sierrabelem_oficial/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUINTAL -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    FLORICULTURA
+                </span>
+
+                <h3>Quintal</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/quintalbelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VITALI -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VESTUÁRIO
+                </span>
+
+                <h3>Vitali</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/vitalibelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- DONNA DE SI -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VESTUÁRIO
+                </span>
+
+                <h3>Donna de Si</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/donnadesibrand/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- INHAUS -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VESTUÁRIO
+                </span>
+
+                <h3>Inhaus</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/inhaus.belem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUALITY CAR -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    CARROS
+                </span>
+
+                <h3>Quality Car</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/qualitycarbelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ASICS -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VESTUÁRIO
+                </span>
+
+                <h3>Asics</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/belemrunningclub/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADIDAS -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VESTUÁRIO
+                </span>
+
+                <h3>Adidas</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/adidas.belem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRACK&FIELD -->
+
+        <div class="event-card">
+
+            <div class="event-content">
+
+                <span class="event-day">
+                    VESTUÁRIO
+                </span>
+
+                <h3>Track&Field</h3>
+
+                <p></p>
+
+                <a href="https://www.instagram.com/trackfieldbelem/" class="card-btn">
+                    Saiba mais
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- NENHUM RESULTADO -->
+
+        <div class="no-results" id="noResultsMsg">
+            Nenhum local encontrado para a sua busca.
+        </div>
+
+    </div>
+
+
+    <a href="index.html" class="gallery-btn">
+        HOME
+    </a>
+
+</section>
+
+
+<!-- ===========================
+     SCRIPT DE PESQUISA E FILTRO
+=========================== -->
+
+<script>
+
+const searchInput = document.getElementById('searchInput');
+
+const filterButtons =
+    document.querySelectorAll('.filter-btn');
+
+const cards =
+    document.querySelectorAll('.event-card');
+
+const noResultsMsg =
+    document.getElementById('noResultsMsg');
+
+let selectedCategory = 'todos';
+
+
+/* ===========================
+   PESQUISA
+=========================== */
+
+searchInput.addEventListener('input', filterPlaces);
+
+
+/* ===========================
+   BOTÕES DE CATEGORIA
+=========================== */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener('click', function(){
+
+        /* Remove active de todos */
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+
+        /* Ativa o botão clicado */
+
+        this.classList.add('active');
+
+
+        /* Guarda a categoria selecionada */
+
+        selectedCategory =
+            this.getAttribute('data-category');
+
+
+        /* Atualiza os resultados */
+
+        filterPlaces();
+
+    });
+
+});
+
+
+/* ===========================
+   FUNÇÃO PARA NORMALIZAR TEXTO
+=========================== */
+
+function normalizeText(text){
+
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+/* ===========================
+   FUNÇÃO PRINCIPAL DE FILTRO
+=========================== */
+
+function filterPlaces(){
+
+    /*
+     * Texto digitado na pesquisa
+     */
+
+    const searchText =
+        normalizeText(searchInput.value);
+
+
+    let visibleCount = 0;
+
+
+    cards.forEach(card => {
+
+        /*
+         * Pega todo o texto do card
+         */
+
+        const cardText =
+            normalizeText(card.innerText);
+
+
+        /*
+         * Pega a categoria do card
+         */
+
+        const categoryElement =
+            card.querySelector('.event-day');
+
+
+        const category =
+            categoryElement
+                ? normalizeText(categoryElement.innerText)
+                : "";
+
+
+        /*
+         * Verifica a pesquisa
+         */
+
+        const matchesSearch =
+            cardText.includes(searchText);
+
+
+        /*
+         * Verifica a categoria
+         */
+
+        let matchesCategory = true;
+
+
+        if(selectedCategory !== 'todos'){
+
+            switch(selectedCategory){
+
+                case 'vestuario':
+
+                    matchesCategory =
+                        category.includes('vestuario');
+
+                    break;
+
+
+                case 'floricultura':
+
+                    matchesCategory =
+                        category.includes('floricultura');
+
+                    break;
+
+
+                case 'carros':
+
+                    matchesCategory =
+                        category.includes('carros');
+
+                    break;
+
+            }
+
+        }
+
+
+        /*
+         * Mostra ou esconde o card
+         */
+
+        if(matchesSearch && matchesCategory){
+
+            card.style.display = "";
+
+            visibleCount++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    /*
+     * Mensagem de nenhum resultado
+     */
+
+    if(visibleCount === 0){
+
+        noResultsMsg.style.display = "block";
+
+    }else{
+
+        noResultsMsg.style.display = "none";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
