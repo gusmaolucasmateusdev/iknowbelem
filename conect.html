@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiências que se conectam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================
+   RESET
+=========================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    background:#f7f4ef;
+    color:#111;
+    overflow-x:hidden;
+    font-family:'Montserrat',sans-serif;
+}
+
+/* ===========================
+   SEÇÃO
+=========================== */
+.programacao-section{
+    width:100%;
+    max-width:1300px;
+    margin:auto;
+    padding:90px 6%;
+}
+.section-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:58px;
+    font-weight:300;
+    color:#111;
+    margin-bottom:20px;
+}
+.section-description{
+    max-width:750px;
+    margin:auto;
+    text-align:center;
+    color:#666;
+    line-height:2;
+    font-size:15px;
+    margin-bottom:70px;
+}
+
+/* ===========================
+   GRID
+=========================== */
+.events-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+    gap:45px;
+}
+
+/* ===========================
+   CARD COM CARROSSEL DINÂMICO
+=========================== */
+.event-card{
+    background:#fff;
+    border-radius:5px;
+    overflow:hidden;
+    border:1px solid rgba(165,143,114,.15);
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+    transition:.35s;
+    display: flex;
+    flex-direction: column;
+}
+.event-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+}
+
+.card-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    background: #f7f4ef; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.4s ease-in-out;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    max-height: 550px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #111;
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* CONTEÚDO */
+.event-content{
+    padding:35px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.event-day{
+    display:block;
+    font-size:11px;
+    color:#a58f72;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:15px;
+}
+.event-content h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    font-weight:400;
+    margin-bottom:18px;
+}
+.event-content p{
+    color:#666;
+    line-height:1.9;
+    font-size:14px;
+    margin-bottom: 20px;
+}
+
+/* BLOCO DE PARCERIA DESTAQUE */
+.partner-box {
+    background: #fdfbf7;
+    border-left: 2px solid #a58f72;
+    padding: 15px 20px;
+    margin-top: auto;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.7;
+}
+.partner-box strong {
+    color: #111;
+    font-weight: 600;
+}
+
+/* BOTÃO DO CARD */
+.card-btn{
+    display:inline-block;
+    padding:14px 34px;
+    border:1px solid #111;
+    color:#111;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    text-align: center;
+    transition:.3s;
+}
+.card-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+
+/* ===========================
+   AGENDA DA SEMANA
+=========================== */
+.weekly-agenda {
+    margin-top: 110px;
+    border-top: 1px solid rgba(165,143,114,.3);
+    padding-top: 80px;
+}
+
+.agenda-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.agenda-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: #111;
+}
+
+.agenda-list {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.agenda-item {
+    background: #fff;
+    padding: 25px 35px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(165,143,114,.15);
+    transition: 0.3s ease;
+}
+
+.agenda-item:hover {
+    border-color: #a58f72;
+    transform: translateX(5px);
+}
+
+.agenda-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.agenda-day-tag {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #a58f72;
+    min-width: 100px;
+}
+
+.agenda-details h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.agenda-details p {
+    font-size: 13px;
+    color: #666;
+}
+
+.agenda-btn {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #111;
+    color: #111;
+    text-decoration: none;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+.agenda-btn:hover {
+    background: #111;
+    color:#fff;
+}
+
+.gallery-btn {
+    display: block;
+    width: fit-content;
+    margin: 80px auto 0;
+    padding: 12px 35px;
+    border: 1px solid #111;
+    text-decoration: none;
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.3s ease;
+}
+.gallery-btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+@media(max-width:900px){
+.section-title{
+    font-size:42px;
+}
+.events-grid{
+    grid-template-columns:1fr;
+}
+.agenda-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+.agenda-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.agenda-btn {
+    width: 100%;
+    text-align: center;
+}
+}
+@media(max-width:600px){
+.section-title{
+    font-size:36px;
+}
+.programacao-section{
+    padding:70px 7%;
+}
+.event-content{
+    padding:28px;
+}
+}
+</style>
+</head>
+<body>
+
+<section class="programacao-section">
+
+    <h2 class="section-title">
+        Experiências que se conectam
+    </h2>
+
+    <!-- CARDS PRINCIPAIS COM CARROSSEL DINÂMICO DE EXPERIÊNCIAS -->
+    <div class="events-grid" id="experiences-container">
+        <!-- O conteúdo do card principal é gerado dinamicamente via script para sincronizar foto e texto -->
+    </div>
+
+    <!-- SEÇÃO: ROLÊS DA SEMANA -->
+    <div class="weekly-agenda">
+        <div class="agenda-header">
+            <h3>O que vai rolar esta semana?</h3>
+        </div>
+
+        <div class="agenda-list">
+
+            <div class="agenda-item">
+                <div class="agenda-info">
+                    <span class="agenda-day-tag">Quarta-feira</span>
+                    <div class="agenda-details">
+                        <h4>Noite à la Française</h4>
+                        <p>Noite cultural na Aliança Francesa com contos, bate-papo, arte e degustação de pães e vinhos.</p>
+                    </div>
+                </div>
+                <a href="https://www.instagram.com/p/DdCZr2FHQHq/" class="agenda-btn">Saiba mais</a>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-info">
+                    <span class="agenda-day-tag">Quinta-feira</span>
+                    <div class="agenda-details">
+                        <h4>Encanto do Círio III</h4>
+                        <p>Espetáculo musical devocional no Theatro da Paz em homenagem ao Círio de Nazaré.</p>
+                    </div>
+                </div>
+                <a href="https://www.theatrodapaz.com.br/informa-es-do-evento-e-registro/encanto-do-cirio-iii" class="agenda-btn">Saiba mais</a>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-info">
+                    <span class="agenda-day-tag">Sexta-feira</span>
+                    <div class="agenda-details">
+                        <h4>O COMEÇO DO FIM com Isabel Fillardis e Well Aguiar</h4>
+                        <p>Peça teatral dramática sobre divórcio e guarda parental com momentos de humor agridoce.</p>
+                    </div>
+                </div>
+                <a href="https://www.theatrodapaz.com.br/informa-es-do-evento-e-registro/o-comeco-do-fim-com-isabel-fillardis-e-well-aguiar-2026-09-11-20-00" class="agenda-btn">Saiba mais</a>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-info">
+                    <span class="agenda-day-tag">Sábado</span>
+                    <div class="agenda-details">
+                        <h4>12º edição Feira Amazônia</h4>
+                        <p>Feira gastronômica e criativa no Espaço São José Liberto com comida, artesanato, atrações e espaço kids.</p>
+                    </div>
+                </div>
+                <a href="https://www.instagram.com/p/Dc81wrkRICp/" class="agenda-btn">Saiba mais</a>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-info">
+                    <span class="agenda-day-tag">Domingo</span>
+                    <div class="agenda-details">
+                        <h4>Corrida +B run</h4>
+                        <p>Corrida de rua com show musical, arena interativa, brindes, recovery e personalização de medalhas.</p>
+                    </div>
+                </div>
+                <a href="https://www.instagram.com/p/DdC8jwAFoyx/?img_index=1" class="agenda-btn">Saiba mais</a>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="ondecomer.html" class="gallery-btn">VOLTAR À HOME</a>
+
+</section>
+
+<!-- SCRIPT DO CARROSSEL SINCRONIZADO (FOTO + TEXTO) -->
+<script>
+    // AQUI VOCÊ CADASTRA CADA EXPERIÊNCIA/DICA SEPARADAMENTE
+    // Cada item abaixo representa uma "página" diferente do card ao passar para o lado.
+    const experiencesData = [
+        {
+            id: "exp-1",
+            image: "pld1.jpeg",
+            alt: "Parque Linear da Doca - Vista 1",
+            tag: "TREINO + CAFÉ DA MANHÃ",
+            title: "Por que treinar no Parque Linear da Doca?",
+            text: "O Parque Linear da Doca é uma excelente pedida! Para te ajudar a aproveitar o espaço da melhor forma, separei algumas dicas essenciais:<br><strong>Estrutura completa:</strong> O local conta com quadras de esportes, academia ao ar livre e pontos de hidratação para você se manter revigorado.<br><strong>Ideal para o seu ritmo:</strong> O parque é perfeito para caminhadas e corridas leves.<br><strong>Atenção ao tipo de treino:</strong> Como as pistas são um pouco estreitas e dividem espaço com ciclistas e patinadores, não recomendamos treinos de tiro ou intervalados.<br><strong>Melhores horários:</strong> O ideal é ir pela manhã.",
+            partnerTitle: "Dica pós-treino:",
+            partnerText: "Quer caprichar no café da manhã depois de se exercitar? A nossa sugestão é o <strong>Café Belém</strong>, que fica bem pertinho, na Rua Municipalidade, 869. O ambiente é super charmoso e eles abrem a partir das 7h30!",
+            btnText: "Conhecer Café Belém",
+            btnLink: "https://www.instagram.com/cafebelem__/"
+        },
+        {
+            id: "exp-02",
+            image: "ik02.jpeg",
+            alt: "Pôr do sol na Orla",
+            tag: "MUSEUS & HISTÓRIA",
+            title: "Um passeio pela história de Belém",
+            text: "Se você ama história, arquitetura e aquelas construções que parecem guardar um pedacinho da cidade em cada detalhe, esse passeio é para você. Nossa dica é começar pelo Museu de Arte Sacra do Pará, no coração do centro histórico. Entre igrejas, arte e peças que ajudam a contar a formação cultural e religiosa da Amazônia, vale caminhar sem pressa e observar também os detalhes do entorno. De lá, siga para o Museu do Estado do Pará, instalado no Palácio Lauro Sodré. O próprio edifício já faz parte da experiência: salas, pinturas e objetos ajudam a apresentar diferentes momentos da história política, social e cultural do Pará. Para fechar o roteiro, vá até a Casa das Onze Janelas, um dos cartões-postais do complexo histórico da cidade. Além das exposições, o passeio ganha ainda mais charme com a arquitetura do casarão e a vista para a Baía do Guajará.",
+            partnerTitle: "Parada obrigatória:",
+            partnerText: "Curtiu o visual? Aproveite para dar uma passada nos quiosques locais para tomar um Açu bem gelado ou provar quitutes regionais.",
+            btnText: "Ver Localização",
+            btnLink: "https://www.instagram.com/"
+        },
+        // Se quiser adicionar mais experiências, basta copiar e colar um bloco acima mudando os textos e imagens!
+    ];
+
+    const currentSlideIndices = {};
+
+    function renderExperiences() {
+        const container = document.getElementById('experiences-container');
+        container.innerHTML = '';
+
+        experiencesData.forEach((exp, index) => {
+            currentSlideIndices[exp.id] = 0; // Inicia na primeira foto de cada experiência se houver mais de uma, ou tratamos como slide único/múltiplo
+        });
+
+        // Como criamos um card único que altera o conteúdo interno ao navegar:
+        let cardHTML = `
+            <div class="event-card">
+                <div class="card-carousel" id="main-carousel">
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Os slides injetados via JS -->
+                    </div>
+                    <button class="carousel-btn prev" onclick="changeExperience(-1)">&#10094;</button>
+                    <button class="carousel-btn next" onclick="changeExperience(1)">&#10095;</button>
+                    <div class="carousel-dots" id="carousel-dots">
+                        <!-- Os dots injetados via JS -->
+                    </div>
+                </div>
+
+                <div class="event-content" id="event-content-box">
+                    <!-- O conteúdo textual muda aqui junto -->
+                </div>
+            </div>
+        `;
+        container.innerHTML = cardHTML;
+        updateExperienceView();
+    }
+
+    let currentIndex = 0;
+
+    function changeExperience(direction) {
+        currentIndex += direction;
+        if (currentIndex >= experiencesData.length) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = experiencesData.length - 1;
+        }
+        updateExperienceView();
+    }
+
+    function goToExperience(index) {
+        currentIndex = index;
+        updateExperienceView();
+    }
+
+    function updateExperienceView() {
+        const exp = experiencesData[currentIndex];
+        
+        // Atualiza a Track do Carrossel com a imagem da experiência atual
+        const track = document.getElementById('carousel-track');
+        track.innerHTML = `
+            <div class="carousel-slide">
+                <img src="${exp.image}" alt="${exp.alt}">
+            </div>
+        `;
+
+        // Atualiza os Dots
+        const dotsContainer = document.getElementById('carousel-dots');
+        let dotsHTML = '';
+        experiencesData.forEach((_, i) => {
+            dotsHTML += `<span class="dot ${i === currentIndex ? 'active' : ''}" onclick="goToExperience(${i})"></span>`;
+        });
+        dotsContainer.innerHTML = dotsHTML;
+
+        // Atualiza os Textos do Card de forma sincronizada
+        const contentBox = document.getElementById('event-content-box');
+        contentBox.innerHTML = `
+            <span class="event-day">${exp.tag}</span>
+            <h3>${exp.title}</h3>
+            <p>${exp.text}</p>
+            
+            <div class="partner-box">
+                <strong>${exp.partnerTitle}</strong> ${exp.partnerText}
+            </div>
+
+            <a href="${exp.btnLink}" class="card-btn" target="_blank">
+                ${exp.btnText}
+            </a>
+        `;
+
+        // Ajusta a altura da imagem dinamicamente
+        const carousel = document.getElementById('main-carousel');
+        const img = track.querySelector('img');
+        if (img) {
+            if (img.complete) {
+                adjustHeight(carousel, img);
+            } else {
+                img.onload = () => adjustHeight(carousel, img);
+            }
+        }
+    }
+
+    function adjustHeight(carousel, img) {
+        const ratio = img.naturalHeight / img.naturalWidth;
+        const containerWidth = carousel.offsetWidth;
+        let calculatedHeight = containerWidth * ratio;
+        
+        if (calculatedHeight < 320) calculatedHeight = 320;
+        if (calculatedHeight > 550) calculatedHeight = 550;
+
+        carousel.style.height = calculatedHeight + 'px';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        renderExperiences();
+    });
+
+    window.addEventListener('resize', () => {
+        const carousel = document.getElementById('main-carousel');
+        const img = document.querySelector('#carousel-track img');
+        if (carousel && img) {
+            adjustHeight(carousel, img);
+        }
+    });
+</script>
+
+</body>
+</html>
