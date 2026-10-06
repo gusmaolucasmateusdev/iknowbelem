@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Experiência IK</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f4ef;
+    color:#111;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    position:relative;
+    width:100%;
+    min-height:72vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.40),
+            rgba(0,0,0,.55)
+        ),
+        url('pld1.jpeg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:flex-end;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 8% 85px;
+
+    color:#fff;
+}
+
+.hero-kicker{
+    display:block;
+
+    margin-bottom:20px;
+
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+
+    color:#fff;
+}
+
+.hero h1{
+    max-width:900px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(60px,8vw,112px);
+    line-height:.88;
+
+    font-weight:300;
+}
+
+.hero h1 em{
+    font-style:italic;
+}
+
+.hero-description{
+    max-width:560px;
+
+    margin-top:30px;
+
+    font-size:13px;
+    line-height:1.9;
+    letter-spacing:.4px;
+
+    color:#eee;
+}
+
+
+/* ===========================
+   INTRO
+=========================== */
+
+.intro{
+    max-width:1400px;
+    margin:auto;
+
+    padding:110px 8% 75px;
+
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+
+    gap:100px;
+
+    align-items:end;
+}
+
+.kicker{
+    display:block;
+
+    margin-bottom:18px;
+
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    color:#111;
+}
+
+.intro h2{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(50px,6vw,80px);
+    line-height:.92;
+
+    font-weight:300;
+}
+
+.intro h2 em{
+    font-style:italic;
+}
+
+.intro-text{
+    max-width:650px;
+
+    color:#666;
+
+    font-size:14px;
+    line-height:2;
+}
+
+
+/* ===========================
+   FILTROS
+=========================== */
+
+.filter-section{
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 8% 55px;
+}
+
+.filters{
+    display:flex;
+
+    align-items:center;
+    gap:0;
+
+    flex-wrap:wrap;
+
+    border-top:1px solid rgba(0,0,0,.15);
+    border-bottom:1px solid rgba(0,0,0,.15);
+}
+
+.filter-btn{
+    position:relative;
+
+    padding:22px 25px;
+
+    border:0;
+    border-right:1px solid rgba(0,0,0,.12);
+
+    background:transparent;
+
+    color:#555;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:10px;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.filter-btn:first-child{
+    padding-left:0;
+}
+
+.filter-btn:last-child{
+    border-right:none;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    color:#111;
+}
+
+.filter-btn.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:25px;
+    bottom:-1px;
+
+    height:2px;
+
+    background:#111;
+}
+
+.filter-btn:first-child.active::after{
+    right:25px;
+}
+
+
+/* ===========================
+   EXPERIÊNCIAS
+=========================== */
+
+.experiences-section{
+    max-width:1400px;
+    margin:auto;
+
+    padding:25px 8% 130px;
+}
+
+.experiences-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    gap:65px 35px;
+}
+
+
+/* ===========================
+   CARD
+=========================== */
+
+.exp-card{
+    display:flex;
+    flex-direction:column;
+
+    background:transparent;
+
+    transition:.4s;
+
+    animation:cardAppear .5s ease both;
+}
+
+@keyframes cardAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ===========================
+   IMAGEM
+=========================== */
+
+.exp-image-container{
+    position:relative;
+
+    width:100%;
+    height:420px;
+
+    overflow:hidden;
+
+    background:#ddd;
+}
+
+.exp-image-container img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .8s ease;
+}
+
+.exp-card:hover .exp-image-container img{
+    transform:scale(1.04);
+}
+
+
+/* ===========================
+   TAG
+=========================== */
+
+.exp-tag{
+    position:absolute;
+
+    left:20px;
+    bottom:20px;
+
+    padding:9px 15px;
+
+    background:rgba(17,17,17,.82);
+
+    color:#fff;
+
+    font-size:9px;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+
+/* ===========================
+   CONTEÚDO
+=========================== */
+
+.exp-content{
+    padding:27px 0 0;
+}
+
+.exp-content h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:34px;
+    line-height:1;
+
+    font-weight:400;
+
+    color:#111;
+
+    margin-bottom:15px;
+}
+
+.exp-content > p{
+    max-width:500px;
+
+    color:#666;
+
+    font-size:13px;
+    line-height:1.9;
+
+    margin-bottom:25px;
+}
+
+
+/* ===========================
+   DETALHES DO ROTEIRO
+=========================== */
+
+.route-details{
+    padding:20px 0;
+
+    border-top:1px solid rgba(165,143,114,.35);
+    border-bottom:1px solid rgba(165,143,114,.35);
+
+    margin-bottom:20px;
+}
+
+.route-details p{
+    margin-bottom:9px;
+
+    color:#666;
+
+    font-size:11px;
+    line-height:1.7;
+}
+
+.route-details p:last-child{
+    margin-bottom:0;
+}
+
+.route-details strong{
+    color:#222;
+    font-weight:500;
+}
+
+
+/* ===========================
+   RODAPÉ DO CARD
+=========================== */
+
+.exp-footer{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.partner-name{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    color:#8f795f;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:20px;
+}
+
+.partner-name i{
+    font-family:'Montserrat',sans-serif;
+
+    font-size:10px;
+}
+
+
+/* ===========================
+   BOTÃO
+=========================== */
+
+.btn-details{
+    display:inline-block;
+
+    padding:12px 22px;
+
+    border:1px solid #111;
+
+    color:#111;
+
+    text-decoration:none;
+
+    font-size:9px;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+.btn-details:hover{
+    background:#111;
+    color:#fff;
+}
+
+
+/* ===========================
+   SEÇÃO FINAL
+=========================== */
+
+.experience-footer{
+    position:relative;
+
+    width:100%;
+
+    padding:120px 8%;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.60),
+            rgba(0,0,0,.68)
+        ),
+        url('fim-do-dia.jpeg');
+
+    background-size:cover;
+    background-position:center;
+
+    color:#fff;
+}
+
+.experience-footer-inner{
+    max-width:1400px;
+    margin:auto;
+}
+
+.experience-footer .kicker{
+    color:#fff;
+}
+
+.experience-footer h2{
+    max-width:850px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(50px,7vw,90px);
+
+    line-height:.9;
+
+    font-weight:300;
+}
+
+.experience-footer h2 em{
+    font-style:italic;
+}
+
+.experience-footer p{
+    max-width:550px;
+
+    margin-top:25px;
+
+    color:#ddd;
+
+    font-size:13px;
+    line-height:1.9;
+}
+
+
+/* ===========================
+   RODAPÉ
+=========================== */
+
+.footer{
+    padding:45px 8%;
+
+    background:#111;
+
+    color:#777;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    font-size:10px;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.footer strong{
+    color:#fff;
+    font-weight:400;
+}
+
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:1050px){
+
+    .intro{
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+    .experiences-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .exp-image-container{
+        height:380px;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .hero{
+        min-height:650px;
+    }
+
+    .hero-content{
+        padding:0 7% 60px;
+    }
+
+    .hero h1{
+        font-size:clamp(54px,15vw,82px);
+    }
+
+    .intro{
+        padding:85px 7% 60px;
+    }
+
+    .filter-section{
+        padding:0 7% 40px;
+    }
+
+    .filters{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .filter-btn,
+    .filter-btn:first-child{
+        padding:17px 12px;
+
+        border-right:1px solid rgba(0,0,0,.12);
+        border-bottom:1px solid rgba(0,0,0,.12);
+
+        text-align:left;
+    }
+
+    .filter-btn:nth-child(even){
+        border-right:none;
+    }
+
+    .filter-btn.active::after{
+        right:12px;
+    }
+
+    .experiences-section{
+        padding:20px 7% 85px;
+    }
+
+    .experiences-grid{
+        grid-template-columns:1fr;
+
+        gap:70px;
+    }
+
+    .exp-image-container{
+        height:430px;
+    }
+
+    .experience-footer{
+        padding:90px 7%;
+    }
+
+    .footer{
+        flex-direction:column;
+
+        gap:15px;
+
+        text-align:center;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .exp-image-container{
+        height:350px;
+    }
+
+    .exp-content h3{
+        font-size:31px;
+    }
+
+    .exp-footer{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .btn-details{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ===========================
+     HERO
+=========================== -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Descubra<br>
+            <em>novos jeitos</em><br>
+            de viver Belém.
+        </h1>
+
+        <p class="hero-description">
+            Roteiros pensados para conectar lugares, sabores,
+            pessoas e experiências que fazem a cidade acontecer.
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- ===========================
+     INTRO
+=========================== -->
+
+<section class="intro">
+
+    <div>
+
+        <span class="kicker">
+            Experiência IK
+        </span>
+
+        <h2>
+            Não é apenas<br>
+            um roteiro.<br>
+            <em>É uma experiência.</em>
+        </h2>
+
+    </div>
+
+
+    <div class="intro-text">
+
+        <p>
+            A cidade pode ser vivida de muitas maneiras.
+            Um treino pela manhã, um café depois da caminhada,
+            uma tarde entre árvores ou um pôr do sol seguido
+            de uma boa mesa.
+        </p>
+
+        <br>
+
+        <p>
+            Criamos experiências que combinam lugares e momentos
+            para você descobrir Belém de um jeito mais leve,
+            espontâneo e interessante.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===========================
+     FILTROS
+=========================== -->
+
+<section class="filter-section">
+
+    <div class="filters">
+
+        <button
+            class="filter-btn active"
+            onclick="filterExp('all', this)"
+        >
+            Todas
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExp('manha', this)"
+        >
+            Manhã
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExp('tarde', this)"
+        >
+            Tarde
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterExp('noite', this)"
+        >
+            Noite
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===========================
+     EXPERIÊNCIAS
+=========================== -->
+
+<section class="experiences-section">
+
+    <div class="experiences-grid" id="grid">
+
+
+        <!-- ===========================
+             EXPERIÊNCIA 01
+        =========================== -->
+
+        <article
+            class="exp-card"
+            data-category="manha"
+        >
+
+            <div class="exp-image-container">
+
+                <img
+                    src="pld1.jpeg"
+                    alt="Treino e café na Doca"
+                >
+
+                <span class="exp-tag">
+                    Manhã · Corrida
+                </span>
+
+            </div>
+
+
+            <div class="exp-content">
+
+                <h3>
+                    Treino & Café na Doca
+                </h3>
+
+                <p>
+                    O Parque Linear da Doca é uma excelente pedida! Para te ajudar a aproveitar o espaço da melhor forma, separei algumas dicas essenciais:
+                </p>
+
+
+                <div class="route-details">
+
+                    <p>
+                        <strong>Estrutura completa:</strong>
+                        O Parque conta com quadras de esportes, academia ao ar livre e pontos de hidratação.
+                    </p>
+
+                    <p>
+                        <strong>Ideal para o seu ritmo:</strong>
+                        É perfeito para caminhadas e corridas leves.
+                    </p>
+
+                    <p>
+                        <strong>Atenção ao tipo de treino:</strong>
+                        Como as pistas são um pouco estreitas e dividem espaço com ciclistas e patinadores, não recomendamos treinos de tiro ou intervalados.
+                    </p>
+
+                    <p>
+                        <strong>Melhores horários:</strong>
+                        O ideal é ir pela manhã.
+                    </p>
+
+                </div>
+
+
+                <div class="exp-footer">
+
+                    <span class="partner-name">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        Depois de um treino, que tal um café? Recomendamos o Café Belém
+                    </span>
+
+                    <a
+                        href="https://maps.google.com/?q=Rua+Municipalidade+869+Belem"
+                        target="_blank"
+                        class="btn-details"
+                    >
+                        Saiba mais 
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ===========================
+             EXPERIÊNCIA 02
+        =========================== -->
+
+        <article
+            class="exp-card"
+            data-category="tarde"
+        >
+
+            <div class="exp-image-container">
+
+                <img
+                    src="fim-do-dia.jpeg"
+                    alt="Orla de Icoaraci"
+                >
+
+                <span class="exp-tag">
+                    Tarde · Natureza
+                </span>
+
+            </div>
+
+
+            <div class="exp-content">
+
+                <h3>
+                    Orla & Pôr do Sol
+                </h3>
+
+                <p>
+                    A Orla de Icoaraci é um dos cartões-postais mais autênticos e vibrantes de Belém. Para te ajudar a aproveitar o espaço da melhor forma, separei algumas dicas essenciais:
+                </p>
+
+
+                <div class="route-details">
+
+                    <p>
+                        <strong>O que fazer:</strong>
+                        Caminhar pelo calçadão, sentir a brisa, escolher uma barraca de coco, sentar e apreciar a paisagem, tomar uma água de coco e curtir o pôr do sol
+                    </p>
+
+                    <p>
+                        <strong>Melhor horário:</strong>
+                        Fim de tarde, a partir das 16h
+                    </p>
+
+                </div>
+
+
+                <div class="exp-footer">
+
+                    <span class="partner-name">
+                        <i class="fa-solid fa-ice-cream"></i>
+                        Como chegar na Orla?
+                    </span>
+
+                    <a
+                        href="#"
+                        target="_blank"
+                        class="btn-details"
+                    >
+                        Ver rota →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===========================
+     FINAL
+=========================== -->
+
+<section class="experience-footer">
+
+    <div class="experience-footer-inner">
+
+        <span class="kicker">
+            Seu próximo caminho
+        </span>
+
+        <h2>
+            A cidade está<br>
+            esperando por <em>você.</em>
+        </h2>
+
+        <p>
+            Escolha um momento, encontre uma experiência
+            e descubra um novo jeito de viver Belém.
+        </p>
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ===========================
+     SCRIPT
+=========================== -->
+
+<script>
+
+function filterExp(category, button){
+
+    const buttons =
+        document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+
+    const cards =
+        document.querySelectorAll('.exp-card');
+
+
+    cards.forEach(card => {
+
+        const cardCategory =
+            card.getAttribute('data-category');
+
+
+        if(
+            category === 'all' ||
+            cardCategory === category
+        ){
+
+            card.style.display = 'flex';
+
+            card.style.animation =
+                'none';
+
+            void card.offsetWidth;
+
+            card.style.animation =
+                'cardAppear .5s ease both';
+
+        }else{
+
+            card.style.display = 'none';
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
