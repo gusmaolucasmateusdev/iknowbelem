@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#39001f">
+
+<title>Grão Pará Açaiteria</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bordo: #4a002c;
+    --bordo-escuro: #280017;
+    --bordo-claro: #79244e;
+    --fundo: #f4eff1;
+    --branco: #fffdfd;
+    --texto: #21171d;
+    --texto-suave: #74666e;
+    --linha: rgba(74, 0, 44, 0.19);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* APRESENTAÇÃO DA MARCA */
+
+.hero {
+    width: 100%;
+    min-height: 300px;
+    background: var(--bordo-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 45px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::before {
+    top: -190px;
+    left: -90px;
+}
+
+.hero::after {
+    right: -120px;
+    bottom: -210px;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    display: block;
+    width: 118px;
+    height: 118px;
+    object-fit: contain;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid rgba(255,255,255,0.75);
+}
+
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 66px;
+    font-weight: 400;
+    color: var(--branco);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    color: #d9b9ca;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.restaurant-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 6% 100px;
+}
+
+.section-tag {
+    display: inline-block;
+    color: var(--bordo-claro);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.restaurant-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 70px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--bordo);
+    margin-bottom: 25px;
+}
+
+.restaurant-description {
+    max-width: 800px;
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+    margin-bottom: 55px;
+}
+
+/* TÍTULOS E INFORMAÇÕES */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 75px;
+}
+
+.info-box {
+    border-top: 1px solid var(--linha);
+    padding-top: 23px;
+}
+
+.info-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--bordo);
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+}
+
+.info-box strong {
+    color: var(--bordo);
+    font-weight: 600;
+}
+
+/* BOTÕES */
+
+.main-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--bordo);
+    color: var(--bordo);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    transition: .35s;
+    background: transparent;
+}
+
+.main-btn:hover {
+    background: var(--bordo);
+    color: #fff;
+}
+
+/* GALERIA */
+
+.gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: .6s;
+    border-radius: 3px;
+}
+
+.gallery img:hover {
+    transform: scale(1.025);
+}
+
+/* MAPA */
+
+.map {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    border: 1px solid var(--linha);
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) contrast(95%);
+}
+
+/* RODAPÉ VISUAL */
+
+.back-area {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* TABLETS */
+
+@media(max-width: 900px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .map {
+        height: 400px;
+    }
+
+}
+
+/* CELULARES */
+
+@media(max-width: 800px) {
+
+    .hero {
+        min-height: 260px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .restaurant-title {
+        font-size: 46px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}
+
+/* CELULARES PEQUENOS */
+
+@media(max-width: 600px) {
+
+    .restaurant-section {
+        padding: 45px 7% 70px;
+    }
+
+    .restaurant-description {
+        font-size: 13px;
+        margin-bottom: 45px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 60px;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+
+    .main-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 9px;
+        letter-spacing: 3px;
+        line-height: 2;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .map {
+        height: 320px;
+        margin-bottom: 55px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- APRESENTAÇÃO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <img
+            src="logo-grao-para.png"
+            alt="Logo da Grão Pará Açaiteria"
+            class="logo"
+        >
+
+        <h1>Grão Pará</h1>
+
+        <p>Açaiteria & Sabores · Est. 2025</p>
+
+    </div>
+
+</header>
+
+<!-- CONTEÚDO -->
+
+<main class="restaurant-section">
+
+    <span class="section-tag">
+        ELEITA A MELHOR AÇAITERIA DE BELÉM!
+    </span>
+
+    <p class="restaurant-description">
+        Conheça a Grão Pará Açaiteria, confira nosso ambiente,
+        acompanhe nossas redes sociais e consulte o cardápio.
+    </p>
+
+    <!-- AMBIENTE -->
+
+    <div class="info-box">
+        <h3>Ambiente</h3>
+    </div>
+
+    <div class="gallery">
+
+        <img src="gpa1.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+        <img src="gpa2.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+        <img src="gpa3.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+        <img src="gpa4.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+        <img src="gpa5.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+        <img src="gpa6.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+        <img src="gpa7.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+        <img src="gpa8.jpeg" alt="Ambiente da Grão Pará Açaiteria" loading="lazy">
+
+    </div>
+
+    <!-- ENDEREÇO E REDES SOCIAIS -->
+
+    <div class="info-grid">
+
+        <div class="info-box">
+
+            <h3>Endereço</h3>
+
+            <p>
+                Em frente ao Assaí Atacadista - Av. Roberto Camelier,
+                121 - Loja 04 - Batista Campos, Belém - PA, 66025-420
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>Redes sociais</h3>
+
+            <p>
+                Acompanhe novidades, produtos e outras publicações
+                da Grão Pará em nosso Instagram.
+            </p>
+
+            <br>
+
+            <a
+                href="https://www.instagram.com/graoparaacaiteria/"
+                class="main-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                INSTAGRAM
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- CARDÁPIO -->
+
+    <div class="info-box">
+
+        <h3>Cardápio</h3>
+
+        <p>
+            Confira nosso cardápio completo com produtos e valores.
+        </p>
+
+        <br>
+
+        <a
+            href="cardapio_grao_para.pdf"
+            class="main-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            VER CARDÁPIO
+        </a>
+
+    </div>
+
+    <br><br><br>
+
+    <!-- LOCALIZAÇÃO -->
+
+    <div class="info-box">
+
+        <h3>Localização</h3>
+
+    </div>
+
+    <div class="map">
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.517203404269!2d-48.49634632602466!3d-1.4632921358431057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48f2862b66145%3A0xe69aba8d67d4359d!2zR1LDg08tUEFSw4EgQcOHQUlURVJJQSBFIFNBQk9SRVM!5e0!3m2!1spt-BR!2sbr!4v1791853155016!5m2!1spt-BR!2sbr"
+            title="Localização da Grão Pará Açaiteria"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+
+    </div>
+
+    <!-- VOLTAR -->
+
+    <div class="back-area">
+
+        <a href="ondecomer.html" class="main-btn">
+            VOLTAR
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>
