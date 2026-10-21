@@ -2,451 +2,452 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F1E1CE">
 
+<title>Café do CANTO</title>
 
-<title>Café do Canto</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
+:root {
+    --nude-canto: #F1E1CE;
+    --preto-canto: #1A1A1A;
+    --preto-suave: #2A2A2A;
+    --madeira-canto: #8C532B;
+    --fundo-concreto: #EBE6DF;
+    --fundo-card: #F7F3EE;
+    --branco: #ffffff;
+    --texto: #1A1A1A;
+    --texto-suave: #5C5650;
+    --linha: rgba(26, 26, 26, 0.15);
 }
 
-
-
-html{
-
-    scroll-behavior:smooth;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-
-body{
-
-    background:#f7f4ef;
-    color:#111;
-    overflow-x:hidden;
-    font-family:'Montserrat',sans-serif;
-
+html {
+    scroll-behavior: smooth;
 }
 
-.hero{
-
-    width:100%;
-    height:40vh;
-    background: #f7f4ef;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding-top: 50px;
-
+body {
+    background: var(--fundo-concreto);
+    color: var(--texto);
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.hero-content{
-
-    width:90%;
-    max-width:900px;
-
-}
-
-.hero-content h1{
-
-    font-family:'Cormorant Garamond',serif;
-    font-size:72px;
-    font-weight:400;
-    color:#111;
-    letter-spacing:2px;
-    margin-bottom:20px;
-
-}
-
-.hero-content p{
-
-    color:#a58f72;
-    font-size:12px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-
-}
-
-
-.restaurant-section{
-
-    width:100%;
-    max-width:1200px;
-    margin:auto;
-    padding:50px 6% 100px 6%;
-
-}
-
-.section-tag{
-
-    color:#a58f72;
-    font-size:12px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    margin-bottom:20px;
-
-}
-
-.restaurant-title{
-
-    font-family:'Cormorant Garamond',serif;
-    font-size:70px;
-    font-weight:300;
-    line-height:1.1;
-    margin-bottom:30px;
-
-}
-
-.restaurant-description{
-
-    max-width:800px;
-    color: #666;
-    line-height:2;
-    font-size:15px;
-    margin-bottom:70px;
-
-}
-
-.info-grid{
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-    margin-bottom:80px;
-
-}
-
-.info-box{
-
-    border-top:1px solid rgba(0,0,0,.15);
-    padding-top:25px;
-
-}
-
-.info-box h3{
-
-    font-family:'Cormorant Garamond',serif;
-    font-size:32px;
-    font-weight:400;
-    margin-bottom:15px;
-
-}
-
-.info-box p{
-
-    color:#666;
-    line-height:2;
-    font-size:14px;
-
-}
-
-.main-btn{
-
-    display:inline-block;
-    padding:15px 45px;
-    border:1px solid #111;
-    color:#111;
-    text-decoration:none;
-    letter-spacing:3px;
-    font-size:12px;
-    transition:.35s;
-
-}
-
-.main-btn:hover{
-
-    background:#111;
-    color:#fff;
-
-}
-
-@media(max-width:800px){
-
-.hero{
-
-    height:30vh;
-
-}
-
-.hero-content h1{
-
-    font-size:48px;
-
-}
-
-.restaurant-title{
-
-    font-size:46px;
-
-}
-
-.info-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-}
-
-.gallery{
-
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    margin-top:30px;
-    margin-bottom:80px;
+.hero {
+    width: 100%;
+    min-height: 300px;
+    background: var(--nude-canto);
+    display: flex;
     align-items: center;
-
+    justify-content: center;
+    text-align: center;
+    padding: 45px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.gallery img{
-
-    width:100%;
-    height: auto; /* Mantém a proporção original da imagem sem cortar */
-    object-fit: contain; /* Garante que a imagem inteira apareça */
-    transition:.6s;
-    border-radius:3px;
-
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(26, 26, 26, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-.gallery img:hover{
-
-    transform:scale(1.04);
-
+.hero::before {
+    top: -190px;
+    left: -90px;
 }
 
-.map{
-
-    width:100%;
-    height:500px;
-    overflow:hidden;
-    margin-top:30px;
-    margin-bottom:80px;
-
+.hero::after {
+    right: -120px;
+    bottom: -210px;
 }
 
-.map iframe{
-
-    width:100%;
-    height:100%;
-    border:0;
-    filter:grayscale(100%) contrast(95%);
-
+.hero-content {
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
 }
 
-.restaurant-section .info-box + .info-box{
-
-    margin-top:10px;
-
+.logo {
+    display: block;
+    width: 118px;
+    height: 118px;
+    object-fit: contain;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: var(--nude-canto);
+    border: 3px solid var(--preto-canto);
 }
 
-.info-box strong{
-
-    color:#111;
-    font-weight:600;
-
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 66px;
+    font-weight: 400;
+    color: var(--preto-canto);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
-@media(max-width:900px){
-
-.gallery{
-
-    grid-template-columns:repeat(2,1fr);
-
+.hero-content p {
+    color: #4A423A;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
-.map{
-
-    height:400px;
-
+.restaurant-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 6% 100px;
 }
 
+.section-tag {
+    display: inline-block;
+    color: var(--madeira-canto);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
 }
 
-@media(max-width:600px){
-
-.restaurant-section{
-
-    padding:50px 7%;
-
+.restaurant-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 70px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--preto-canto);
+    margin-bottom: 25px;
 }
 
-.restaurant-description{
-
-    font-size:14px;
-
+.restaurant-description {
+    max-width: 800px;
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+    margin-bottom: 55px;
 }
 
-.gallery{
-
-    grid-template-columns:1fr;
-
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 75px;
 }
 
-.main-btn{
-
-    width:100%;
-    text-align:center;
-
+.info-box {
+    border-top: 1px solid var(--linha);
+    padding-top: 23px;
 }
 
+.info-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--preto-canto);
+    margin-bottom: 15px;
 }
 
+.info-box p {
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+}
+
+.info-box strong {
+    color: var(--preto-canto);
+    font-weight: 600;
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--preto-canto);
+    color: var(--preto-canto);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: .35s;
+    background: transparent;
+}
+
+.main-btn:hover {
+    background: var(--preto-canto);
+    border-color: var(--preto-canto);
+    color: var(--nude-canto);
+}
+
+.gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: .6s;
+    border-radius: 3px;
+}
+
+.gallery img:hover {
+    transform: scale(1.025);
+}
+
+.map {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    border: 1px solid var(--linha);
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) contrast(95%);
+}
+
+.back-area {
+    text-align: center;
+    padding-top: 10px;
+}
+
+@media(max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .map {
+        height: 400px;
+    }
+}
+
+@media(max-width: 800px) {
+    .hero {
+        min-height: 260px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .restaurant-title {
+        font-size: 46px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media(max-width: 600px) {
+    .restaurant-section {
+        padding: 45px 7% 70px;
+    }
+
+    .restaurant-description {
+        font-size: 13px;
+        margin-bottom: 45px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 60px;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+
+    .main-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 9px;
+        letter-spacing: 3px;
+        line-height: 2;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .map {
+        height: 320px;
+        margin-bottom: 55px;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<section class="restaurant-section">
+<!-- APRESENTAÇÃO -->
 
-    <span class="section-tag">
-        CAFETERIA
-    </span>
+<header class="hero">
 
-    <h2 class="restaurant-title">
+    <div class="hero-content">
 
-        Café do Canto
+        <img
+            src="logo-canto.png"
+            alt="Logo do Café do CANTO"
+            class="logo"
+        >
 
-    </h2>
+        <h1>Café do CANTO</h1>
+
+        <p>A arte de transformar o simples em extraordinário!</p>
+
+    </div>
+
+</header>
+
+<!-- CONTEÚDO -->
+
+<main class="restaurant-section">
 
     <p class="restaurant-description">
-
-       
-
+        Conheça o Café do CANTO, confira nosso ambiente,
+        acompanhe nossas redes sociais e consulte o cardápio.
     </p>
 
-<br><br><br>
+    <!-- AMBIENTE -->
 
-<div class="info-box">
+    <div class="info-box">
+        <h3>Ambiente</h3>
+    </div>
 
-<h3>
-    Ambiente
-</h3>
+    <div class="gallery">
 
-</div>
+        <img src="can1.jpg" alt="Ambiente do Café do CANTO" loading="lazy">
 
-<div class="gallery">
+        <img src="can2.jpg" alt="Ambiente do Café do CANTO" loading="lazy">
 
-    <img src="cafedocanto.jpeg"
-    alt="Ambiente do restaurante">
+        <img src="can3.jpg" alt="Ambiente do Café do CANTO" loading="lazy">
 
-    
+    </div>
 
-</div>
+    <!-- ENDEREÇO E REDES SOCIAIS -->
 
-<div class="info-grid">
+    <div class="info-grid">
 
-<div class="info-box">
+        <div class="info-box">
 
-    <h3>
-        Endereço
-    </h3>
+            <h3>Onde estamos?</h3>
 
-    <p>
+            <p>
+                Av. Serzedelo Corrêa, 15 - Nazaré, Belém - PA, 66025-240
+            </p>
 
-        Av. Serzedelo Corrêa, 15 - Nazaré, Belém - PA, 66025-240
+        </div>
 
-    </p>
+        <div class="info-box">
 
-    <br>
+            <h3>Redes sociais</h3>
 
-</div>
+            <p>
+                Acompanhe novidades, produtos e outras publicações
+                do Café do CANTO em nosso Instagram.
+            </p>
 
-<div class="info-box">
+            <br>
 
-    <h3>
-        Redes sociais
-    </h3>
+            <a
+                href="https://www.instagram.com/cafe.do.canto/"
+                class="main-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                INSTAGRAM
+            </a>
 
-    <p>
+        </div>
 
-        Acompanhe novidades,
-        pratos especiais e experiências
-        do restaurante.
+    </div>
 
-    </p>
+    <!-- CARDÁPIO -->
 
-    <br>
+    <div class="info-box">
 
-    <a href="https://www.instagram.com/cafe.do.canto/"
-    class="main-btn"
-    target="_blank">
+        <h3>Cardápio</h3>
 
-        INSTAGRAM
+        <p>
+            Confira nosso cardápio completo com produtos e valores.
+        </p>
 
-    </a>
+        <br>
 
-</div>
+        <a
+            href="#"
+            class="main-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            VER CARDÁPIO
+        </a>
 
-</div>
+    </div>
 
-<div class="info-box">
+    <br><br><br>
 
-<h3>
-    Cardápio
-</h3>
+    <!-- LOCALIZAÇÃO -->
 
-<p>
+    <div class="info-box">
 
-Confira nosso cardápio completo
-com pratos, bebidas e valores.
+        <h3>Localização</h3>
 
-</p>
+    </div>
 
-<br>
+    <div class="map">
 
-<a href="cardapio.pdf"
-class="main-btn"
-target="_blank">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5332858259317!2d-48.49513892602493!3d-1.4542200358306339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48f7fca5bbadf%3A0xec8c1a26db9183c2!2sCaf%C3%A9%20do%20Canto%20(Coworking%20e%20Caf%C3%A9)!5e0!3m2!1spt-BR!2sbr!4v1792209990072!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-VER CARDÁPIO
+    </div>
 
-</a>
+    <!-- VOLTAR -->
 
-</div>
+    <div class="back-area">
 
-<br><br><br>
+        <a href="ondecomer.html" class="main-btn">
+            VOLTAR
+        </a>
 
-<div class="info-box">
+    </div>
 
-<h3>
-    Localização
-</h3>
-
-</div>
-
-<div class="map">
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5332858259317!2d-48.49513892602496!3d-1.4542200358306339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48f7fca5bbadf%3A0xec8c1a26db9183c2!2sCaf%C3%A9%20do%20Canto%20(Coworking%20e%20Caf%C3%A9)!5e0!3m2!1spt-BR!2sbr!4v1787537600310!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-</div>
-
-<div style="text-align:center;">
-
-<a href="ondecomer.html"
-class="main-btn">
-
-VOLTAR
-
-</a>
-
-</div>
-
-</section>
+</main>
 
 </body>
-
 </html>
