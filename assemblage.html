@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#500814">
+
+<title>Assemblage</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --vinho-bordo: #500814;
+    --dourado-nobre: #E2B76E;
+    --madeira-escura: #3B2219;
+    --couro-tom: #23120B;
+    --fundo-creme: #F5EFE6;
+    --fundo-suave: #FAF6F0;
+    --branco: #ffffff;
+    --texto: #23120B;
+    --texto-suave: #5C4A42;
+    --linha: rgba(80, 8, 20, 0.18);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fundo-creme);
+    color: var(--texto);
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero {
+    width: 100%;
+    min-height: 300px;
+    background: var(--vinho-bordo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 45px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(226, 183, 110, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::before {
+    top: -190px;
+    left: -90px;
+}
+
+.hero::after {
+    right: -120px;
+    bottom: -210px;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    display: block;
+    width: 118px;
+    height: 118px;
+    object-fit: contain;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+}
+
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 66px;
+    font-weight: 400;
+    color: var(--dourado-nobre);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    color: #E6D5C3;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.restaurant-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 6% 100px;
+}
+
+.section-tag {
+    display: inline-block;
+    color: var(--dourado-nobre);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.restaurant-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 70px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--vinho-bordo);
+    margin-bottom: 25px;
+}
+
+.restaurant-description {
+    max-width: 800px;
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+    margin-bottom: 55px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 75px;
+}
+
+.info-box {
+    border-top: 1px solid var(--linha);
+    padding-top: 23px;
+}
+
+.info-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--vinho-bordo);
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+}
+
+.info-box strong {
+    color: var(--vinho-bordo);
+    font-weight: 600;
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--vinho-bordo);
+    color: var(--vinho-bordo);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: .35s;
+    background: transparent;
+}
+
+.main-btn:hover {
+    background: var(--vinho-bordo);
+    border-color: var(--vinho-bordo);
+    color: var(--dourado-nobre);
+}
+
+.gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: .6s;
+    border-radius: 3px;
+}
+
+.gallery img:hover {
+    transform: scale(1.025);
+}
+
+.map {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    border: 1px solid var(--linha);
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) contrast(95%);
+}
+
+.back-area {
+    text-align: center;
+    padding-top: 10px;
+}
+
+@media(max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .map {
+        height: 400px;
+    }
+}
+
+@media(max-width: 800px) {
+    .hero {
+        min-height: 260px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .restaurant-title {
+        font-size: 46px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media(max-width: 600px) {
+    .restaurant-section {
+        padding: 45px 7% 70px;
+    }
+
+    .restaurant-description {
+        font-size: 13px;
+        margin-bottom: 45px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 60px;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+
+    .main-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 9px;
+        letter-spacing: 3px;
+        line-height: 2;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .map {
+        height: 320px;
+        margin-bottom: 55px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- APRESENTAÇÃO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <img
+            src="logo-assemblage.png"
+            alt="Logo do Assemblage"
+            class="logo"
+        >
+
+        <h1>Assemblage</h1>
+
+        <p>A arte de transformar o simples em extraordinário!</p>
+
+    </div>
+
+</header>
+
+<!-- CONTEÚDO -->
+
+<main class="restaurant-section">
+
+    <p class="restaurant-description">
+        Conheça Assemblage, confira nosso ambiente,
+        acompanhe nossas redes sociais e consulte o cardápio.
+    </p>
+
+    <!-- AMBIENTE -->
+
+    <div class="info-box">
+        <h3>Ambiente</h3>
+    </div>
+
+    <div class="gallery">
+
+        <img src="assemblage.jpeg" alt="Ambiente do Assemblage" loading="lazy">
+
+        <img src="assemblage1.jpeg" alt="Ambiente do Assemblage" loading="lazy">
+
+        <img src="assemblage2.jpeg" alt="Ambiente do Assemblage" loading="lazy">
+
+        <img src="assemblage3.jpeg" alt="Ambiente do Assemblage" loading="lazy">
+
+    </div>
+
+    <!-- ENDEREÇO E REDES SOCIAIS -->
+
+    <div class="info-grid">
+
+        <div class="info-box">
+
+            <h3>Onde estamos?</h3>
+
+            <p>
+                Av. Cmte. Brás de Aguiar, 50 - Nazaré, Belém - PA, 66035-385
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>Redes sociais</h3>
+
+            <p>
+                Acompanhe novidades, produtos e outras publicações
+                do Assemblage em nosso Instagram.
+            </p>
+
+            <br>
+
+            <a
+                href="https://www.instagram.com/assemblagebelem/"
+                class="main-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                INSTAGRAM
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- CARDÁPIO -->
+
+    <div class="info-box">
+
+        <h3>Cardápio</h3>
+
+        <p>
+            Confira nosso cardápio completo com produtos e valores.
+        </p>
+
+        <br>
+
+        <a
+            href="#"
+            class="main-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            VER CARDÁPIO
+        </a>
+
+    </div>
+
+    <br><br><br>
+
+    <!-- LOCALIZAÇÃO -->
+
+    <div class="info-box">
+
+        <h3>Localização</h3>
+
+    </div>
+
+    <div class="map">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.530981926106!2d-48.49382052602484!3d-1.4555231358324123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48f00102e0289%3A0x374f2e28e32bfcae!2sAssemblage!5e0!3m2!1spt-BR!2sbr!4v1792267259612!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+    </div>
+
+    <!-- VOLTAR -->
+
+    <div class="back-area">
+
+        <a href="ondecomer.html" class="main-btn">
+            VOLTAR
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>
