@@ -2,451 +2,453 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#E24B28">
 
 <title>Puba</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
+:root {
+    --terracota-puba: #E24B28;
+    --terracota-escura: #C8391A;
+    --creme-puba: #F4E8D7;
+    --madeira-puba: #5E3719;
+    --fundo-creme: #F8F3EC;
+    --fundo-card: #FFFFFF;
+    --branco: #ffffff;
+    --texto: #1D1B1B;
+    --texto-suave: #5C4F46;
+    --linha: rgba(226, 75, 40, 0.18);
 }
 
-
-
-html{
-
-    scroll-behavior:smooth;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-
-body{
-
-    background:#f7f4ef;
-    color:#111;
-    overflow-x:hidden;
-    font-family:'Montserrat',sans-serif;
-
+html {
+    scroll-behavior: smooth;
 }
 
-.hero{
-
-    width:100%;
-    height:40vh;
-    background: #f7f4ef;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding-top: 50px;
-
+body {
+    background: var(--fundo-creme);
+    color: var(--texto);
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.hero-content{
-
-    width:90%;
-    max-width:900px;
-
-}
-
-.hero-content h1{
-
-    font-family:'Cormorant Garamond',serif;
-    font-size:72px;
-    font-weight:400;
-    color:#111;
-    letter-spacing:2px;
-    margin-bottom:20px;
-
-}
-
-.hero-content p{
-
-    color:#a58f72;
-    font-size:12px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-
-}
-
-
-.restaurant-section{
-
-    width:100%;
-    max-width:1200px;
-    margin:auto;
-    padding:50px 6% 100px 6%;
-
-}
-
-.section-tag{
-
-    color:#a58f72;
-    font-size:12px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    margin-bottom:20px;
-
-}
-
-.restaurant-title{
-
-    font-family:'Cormorant Garamond',serif;
-    font-size:70px;
-    font-weight:300;
-    line-height:1.1;
-    margin-bottom:30px;
-
-}
-
-.restaurant-description{
-
-    max-width:800px;
-    color: #666;
-    line-height:2;
-    font-size:15px;
-    margin-bottom:70px;
-
-}
-
-.info-grid{
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-    margin-bottom:80px;
-
-}
-
-.info-box{
-
-    border-top:1px solid rgba(0,0,0,.15);
-    padding-top:25px;
-
-}
-
-.info-box h3{
-
-    font-family:'Cormorant Garamond',serif;
-    font-size:32px;
-    font-weight:400;
-    margin-bottom:15px;
-
-}
-
-.info-box p{
-
-    color:#666;
-    line-height:2;
-    font-size:14px;
-
-}
-
-.main-btn{
-
-    display:inline-block;
-    padding:15px 45px;
-    border:1px solid #111;
-    color:#111;
-    text-decoration:none;
-    letter-spacing:3px;
-    font-size:12px;
-    transition:.35s;
-
-}
-
-.main-btn:hover{
-
-    background:#111;
-    color:#fff;
-
-}
-
-@media(max-width:800px){
-
-.hero{
-
-    height:30vh;
-
-}
-
-.hero-content h1{
-
-    font-size:48px;
-
-}
-
-.restaurant-title{
-
-    font-size:46px;
-
-}
-
-.info-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-}
-
-.gallery{
-
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    margin-top:30px;
-    margin-bottom:80px;
+.hero {
+    width: 100%;
+    min-height: 300px;
+    background: var(--terracota-puba);
+    display: flex;
     align-items: center;
-
+    justify-content: center;
+    text-align: center;
+    padding: 45px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.gallery img{
-
-    width:100%;
-    height: auto; /* Mantém a proporção original da imagem sem cortar */
-    object-fit: contain; /* Garante que a imagem inteira apareça */
-    transition:.6s;
-    border-radius:3px;
-
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(244, 232, 215, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-.gallery img:hover{
-
-    transform:scale(1.04);
-
+.hero::before {
+    top: -190px;
+    left: -90px;
 }
 
-.map{
-
-    width:100%;
-    height:500px;
-    overflow:hidden;
-    margin-top:30px;
-    margin-bottom:80px;
-
+.hero::after {
+    right: -120px;
+    bottom: -210px;
 }
 
-.map iframe{
-
-    width:100%;
-    height:100%;
-    border:0;
-    filter:grayscale(100%) contrast(95%);
-
+.hero-content {
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
 }
 
-.restaurant-section .info-box + .info-box{
-
-    margin-top:10px;
-
+.logo {
+    display: block;
+    width: 118px;
+    height: 118px;
+    object-fit: contain;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: var(--terracota-puba);
 }
 
-.info-box strong{
-
-    color:#111;
-    font-weight:600;
-
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 66px;
+    font-weight: 400;
+    color: var(--creme-puba);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
-@media(max-width:900px){
-
-.gallery{
-
-    grid-template-columns:repeat(2,1fr);
-
+.hero-content p {
+    color: #F8EFE3;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
-.map{
-
-    height:400px;
-
+.restaurant-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 6% 100px;
 }
 
+.section-tag {
+    display: inline-block;
+    color: var(--terracota-puba);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
 }
 
-@media(max-width:600px){
-
-.restaurant-section{
-
-    padding:50px 7%;
-
+.restaurant-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 70px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--terracota-puba);
+    margin-bottom: 25px;
 }
 
-.restaurant-description{
-
-    font-size:14px;
-
+.restaurant-description {
+    max-width: 800px;
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+    margin-bottom: 55px;
 }
 
-.gallery{
-
-    grid-template-columns:1fr;
-
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 75px;
 }
 
-.main-btn{
-
-    width:100%;
-    text-align:center;
-
+.info-box {
+    border-top: 1px solid var(--linha);
+    padding-top: 23px;
 }
 
+.info-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--terracota-puba);
+    margin-bottom: 15px;
 }
 
+.info-box p {
+    color: var(--texto-suave);
+    line-height: 2;
+    font-size: 14px;
+}
+
+.info-box strong {
+    color: var(--terracota-puba);
+    font-weight: 600;
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--terracota-puba);
+    color: var(--terracota-puba);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: .35s;
+    background: transparent;
+}
+
+.main-btn:hover {
+    background: var(--terracota-puba);
+    border-color: var(--terracota-puba);
+    color: var(--creme-puba);
+}
+
+.gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: .6s;
+    border-radius: 3px;
+}
+
+.gallery img:hover {
+    transform: scale(1.025);
+}
+
+.map {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    border: 1px solid var(--linha);
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) contrast(95%);
+}
+
+.back-area {
+    text-align: center;
+    padding-top: 10px;
+}
+
+@media(max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .map {
+        height: 400px;
+    }
+}
+
+@media(max-width: 800px) {
+    .hero {
+        min-height: 260px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .restaurant-title {
+        font-size: 46px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media(max-width: 600px) {
+    .restaurant-section {
+        padding: 45px 7% 70px;
+    }
+
+    .restaurant-description {
+        font-size: 13px;
+        margin-bottom: 45px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 60px;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+
+    .main-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 9px;
+        letter-spacing: 3px;
+        line-height: 2;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .map {
+        height: 320px;
+        margin-bottom: 55px;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<section class="restaurant-section">
+<!-- APRESENTAÇÃO -->
 
-    <span class="section-tag">
-        RESTAURANTE 
-    </span>
+<header class="hero">
 
-    <h2 class="restaurant-title">
+    <div class="hero-content">
 
-        Puba
+        <img
+            src="logo-puba.png"
+            alt="Logo do Puba"
+            class="logo"
+        >
 
-    </h2>
+        <h1>Puba</h1>
+
+        <p>Bar intimista com vinhos únicos e sabores criados a partir da mandioca.</p>
+
+    </div>
+
+</header>
+
+<!-- CONTEÚDO -->
+
+<main class="restaurant-section">
 
     <p class="restaurant-description">
-
-        
-
+        Conheça o Puba, confira nosso ambiente,
+        acompanhe nossas redes sociais e consulte o cardápio.
     </p>
 
-<br><br><br>
+    <!-- AMBIENTE -->
 
-<div class="info-box">
+    <div class="info-box">
+        <h3>Ambiente</h3>
+    </div>
 
-<h3>
-    Ambiente
-</h3>
+    <div class="gallery">
 
-</div>
+        <img src="puba1.jpg" alt="Ambiente do Puba" loading="lazy">
 
-<div class="gallery">
+        <img src="puba2.jpg" alt="Ambiente do Puba" loading="lazy">
 
-    <img src="puba.jpeg"
-    alt="Ambiente do restaurante">
+        <img src="puba3.jpg" alt="Ambiente do Puba" loading="lazy">
 
-    
+        <img src="puba4.jpg" alt="Ambiente do Puba" loading="lazy">
 
-</div>
+    </div>
 
-<div class="info-grid">
+    <!-- ENDEREÇO E REDES SOCIAIS -->
 
-<div class="info-box">
+    <div class="info-grid">
 
-    <h3>
-        Endereço
-    </h3>
+        <div class="info-box">
 
-    <p>
+            <h3>Onde estamos?</h3>
 
-        R. Veiga Cabral, 649 - Cidade Velha, Belém - PA, 66023-708
+            <p>
+                R. Veiga Cabral, 649 - Cidade Velha, Belém - PA, 66023-708
+            </p>
 
-    </p>
+        </div>
 
-    <br>
+        <div class="info-box">
 
-</div>
+            <h3>Redes sociais</h3>
 
-<div class="info-box">
+            <p>
+                Acompanhe novidades, produtos e outras publicações
+                do Puba em nosso Instagram.
+            </p>
 
-    <h3>
-        Redes sociais
-    </h3>
+            <br>
 
-    <p>
+            <a
+                href="https://www.instagram.com/puba.cidadevelha/"
+                class="main-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                INSTAGRAM
+            </a>
 
-        Acompanhe novidades,
-        pratos especiais e experiências
-        do restaurante.
+        </div>
 
-    </p>
+    </div>
 
-    <br>
+    <!-- CARDÁPIO -->
 
-    <a href="https://www.instagram.com/puba.cidadevelha/"
-    class="main-btn"
-    target="_blank">
+    <div class="info-box">
 
-        INSTAGRAM
+        <h3>Cardápio</h3>
 
-    </a>
+        <p>
+            Confira nosso cardápio completo com produtos e valores.
+        </p>
 
-</div>
+        <br>
 
-</div>
+        <a
+            href="#"
+            class="main-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            VER CARDÁPIO
+        </a>
 
-<div class="info-box">
+    </div>
 
-<h3>
-    Cardápio
-</h3>
+    <br><br><br>
 
-<p>
+    <!-- LOCALIZAÇÃO -->
 
-Confira nosso cardápio completo
-com pratos, bebidas e valores.
+    <div class="info-box">
 
-</p>
+        <h3>Localização</h3>
 
-<br>
+    </div>
 
-<a href="cardapio.pdf"
-class="main-btn"
-target="_blank">
+    <div class="map">
 
-VER CARDÁPIO
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.518359895811!2d-48.50028352602477!3d-1.4626416358422007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48f24df7fb11b%3A0x540e051814bf4d20!2sPuba%20Bar%20%7C%20Cidade%20Velha!5e0!3m2!1spt-BR!2sbr!4v1792267462518!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-</a>
+    </div>
 
-</div>
+    <!-- VOLTAR -->
 
-<br><br><br>
+    <div class="back-area">
 
-<div class="info-box">
+        <a href="ondecomer.html" class="main-btn">
+            VOLTAR
+        </a>
 
-<h3>
-    Localização
-</h3>
+    </div>
 
-</div>
-
-<div class="map">
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.518359895811!2d-48.50028352602477!3d-1.4626416358422112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48f24df7fb11b%3A0x540e051814bf4d20!2sPuba%20Bar%20%7C%20Cidade%20Velha!5e0!3m2!1spt-BR!2sbr!4v1787517995448!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-</div>
-
-<div style="text-align:center;">
-
-<a href="ondecomer.html"
-class="main-btn">
-
-VOLTAR
-
-</a>
-
-</div>
-
-</section>
+</main>
 
 </body>
-
 </html>
