@@ -168,6 +168,37 @@ body{
     gap:10px;
 }
 
+/* FILTRO POR BAIRRO */
+.neighborhood-filter{
+    width:100%;
+    max-width:420px;
+    margin:22px auto 0;
+}
+.neighborhood-filter label{
+    display:block;
+    margin-bottom:9px;
+    color:#a58f72;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.neighborhood-select{
+    width:100%;
+    padding:15px 18px;
+    background:#fff;
+    border:1px solid rgba(165,143,114,0.45);
+    border-radius:4px;
+    color:#333;
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;
+    outline:none;
+    transition:.3s;
+}
+.neighborhood-select:focus{
+    border-color:#a58f72;
+    box-shadow:0 6px 25px rgba(165,143,114,0.12);
+}
+
 .filter-btn{
     padding:12px 20px;
     background:transparent;
@@ -472,6 +503,26 @@ body{
 
     </div>
 
+    <!-- FILTRO POR BAIRRO -->
+    <div class="neighborhood-filter">
+        <label for="neighborhoodFilter">Filtrar por bairro</label>
+        <select id="neighborhoodFilter" class="neighborhood-select">
+            <option value="todos">Todos os bairros</option>
+            <option value="batista campos">Batista Campos</option>
+            <option value="campina">Campina</option>
+            <option value="cidade velha">Cidade Velha</option>
+            <option value="umarizal">Umarizal</option>
+            <option value="nazare">Nazaré</option>
+            <option value="marco">Marco</option>
+            <option value="pedreira">Pedreira</option>
+            <option value="jurunas">Jurunas</option>
+            <option value="guama">Guamá</option>
+            <option value="souza">Souza</option>
+            <option value="icoaraci">Icoaraci</option>
+            <option value="outro">Outro bairro</option>
+        </select>
+    </div>
+
 </div>
 
 
@@ -481,7 +532,7 @@ body{
 
 <div class="events-grid" id="eventsGrid">
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
             <img src="oldhouse.jpeg" alt="Old House">
@@ -503,7 +554,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Reduto">
 
         <div class="event-image">
             <img src="westwood.jpeg" alt="West Wood">
@@ -511,7 +562,7 @@ body{
 
         <div class="event-content">
 
-            <span class="event-day">VELHO OESTE</span>
+            <span class="event-day">RESTAURANTE VELHO OESTE</span>
 
             <h3>West Wood</h3>
 
@@ -525,7 +576,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Umarizal">
 
         <div class="event-image">
             <img src="ovelhomoinho.jpeg" alt="O Velho Moinho">
@@ -547,7 +598,29 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
+
+        <div class="event-image">
+            <img src="assemblage.jpeg" alt="Assemblage">
+        </div>
+
+        <div class="event-content">
+
+            <span class="event-day">RESTAURANTE INTERNACIONAL</span>
+
+            <h3>Assemblage</h3>
+
+            <p></p>
+
+            <a href="assemblage.html" class="card-btn">
+                Saiba mais
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
             <img src="tuttimatti.jpeg" alt="Tutti Matti">
@@ -570,9 +643,7 @@ body{
     </div>
 
 
-    <!-- PASTÍSSIMO -->
-
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
             <img src="pastissimocucina.jpeg" alt="Pastíssimo Cucina">
@@ -580,7 +651,7 @@ body{
 
         <div class="event-content">
 
-            <span class="event-day">RESTAURANTE</span>
+            <span class="event-day">RESTAURANTE ITALIANO</span>
 
             <h3>Pastíssimo Cucina</h3>
 
@@ -595,7 +666,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Batista Campos">
 
         <div class="event-image">
             <img src="famigliapastas.jpeg" alt="Famiglia Pastas">
@@ -617,7 +688,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Reduto">
 
         <div class="event-image">
             <img src="famigliaditalia.jpeg" alt="Famiglia D’Italia">
@@ -639,7 +710,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Umarizal">
 
         <div class="event-image">
             <img src="srtakim.jpeg" alt="Srta. Kim Korean Food">
@@ -662,7 +733,7 @@ body{
     </div>
 
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Cidade Velha">
 
         <div class="event-image">
             <img src="casadosaulo.jpeg" alt="Casa do Saulo">
@@ -689,7 +760,7 @@ body{
 
     <!-- RYORI -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Val-de-Cans">
 
         <div class="event-image">
             <img src="ryori.jpeg" alt="Ryori">
@@ -719,7 +790,7 @@ body{
 
     <!-- SANTA GRELHA -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Val-de-Cans">
 
         <div class="event-image">
             <img src="santagrelha.jpeg" alt="Santa Grelha">
@@ -744,7 +815,7 @@ body{
 
     <!-- PROFUNDO -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
             <img src="profundo.jpeg" alt="Profundo">
@@ -767,126 +838,9 @@ body{
     </div>
 
 
-    <!-- TETTO -->
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="tetto.jpeg" alt="Tetto">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">RESTAURANTE</span>
-
-            <h3>Tetto</h3>
-
-            <p></p>
-
-            <a href="tetto.html" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="amazonianacuia.jpeg" alt="Amazônia na Cuia">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">RESTAURANTE</span>
-
-            <h3>Amazônia na Cuia</h3>
-
-            <p></p>
-
-            <a href="amazonianacuia.html" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- BOI D'OURO -->
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="boidouro.jpeg" alt="Boi D'Ouro">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">CHURRASCARIA</span>
-
-            <h3>Boi D'Ouro</h3>
-
-            <p></p>
-
-            <a href="boidouro.html" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="celeste.jpeg" alt="Celeste">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">RESTAURANTE</span>
-
-            <h3>Celeste</h3>
-
-            <p></p>
-
-            <a href="celeste.html" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="pemanet.jpeg" alt="Pemanet">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">RESTAURANTE</span>
-
-            <h3>Pemanet</h3>
-
-            <p></p>
-
-            <a href="pemanet.html" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
-
     <!-- O BODE IRLANDÊS -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
             <img src="obode.jpeg" alt="O Bode Irlandês">
@@ -911,7 +865,7 @@ body{
 
     <!-- PUBA -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Cidade Velha">
 
         <div class="event-image">
             <img src="puba.jpeg" alt="Puba">
@@ -933,7 +887,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
             <img src="thewine.jpeg" alt="The Wine Experience">
@@ -955,7 +909,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Campina">
 
         <div class="event-image">
             <img src="italiawine.jpeg" alt="Itália Wine Bar">
@@ -977,15 +931,9 @@ body{
 
     </div>
 
-
-   
-
-    
-
-
     <!-- CAFÉ BELÉM -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Umarizal">
 
         <div class="event-image">
             <img src="cafebelem.jpeg" alt="Café Belém">
@@ -1007,7 +955,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Batista Campos">
 
         <div class="event-image">
             <img src="casaambar.JPG" alt="Casa Âmbar">
@@ -1032,7 +980,7 @@ body{
 
     <!-- THE COFFEE -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Batista Campos">
 
         <div class="event-image">
             <img src="thecoffee.jpeg" alt="The Coffee">
@@ -1046,7 +994,7 @@ body{
 
             <p></p>
 
-            <a href="https://www.instagram.com/ikobelem/" class="card-btn">
+            <a href="https://www.instagram.com/ikbelem/" class="card-btn">
                 Saiba mais
             </a>
 
@@ -1057,7 +1005,7 @@ body{
 
     <!-- CAFFÈ GRANI -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Batista Campos">
 
         <div class="event-image">
             <img src="graniespeciali.jpeg" alt="Caffè Grani Speciali">
@@ -1082,7 +1030,7 @@ body{
 
     <!-- PADARIA CHEF PAULO -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
             <img src="padariachefpaulo.jpeg" alt="Padaria Artesanal Chef Paulo">
@@ -1105,44 +1053,20 @@ body{
     </div>
 
 
-    <!-- PONTESA -->
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="cafemuseu.jpeg" alt="Pontesa Café & Bistrô">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">CAFETERIA</span>
-
-            <h3>Pontesa Café & Bistrô</h3>
-
-            <p></p>
-
-            <a href="pontesa.html" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
 
     <!-- CAFÉ DO CANTO -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
-            <img src="cafedocanto.jpeg" alt="Café do Canto">
+            <img src="can2.jpg" alt="Café do Canto">
         </div>
 
         <div class="event-content">
 
             <span class="event-day">CAFETERIA</span>
 
-            <h3>Café do Canto</h3>
+            <h3>Café do CANTO</h3>
 
             <p></p>
 
@@ -1155,34 +1079,9 @@ body{
     </div>
 
 
-    <!-- BISTRÔ CAFÉ CLUB -->
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="cafebistro.jpeg" alt="Bistrô Café Club">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">CAFETERIA</span>
-
-            <h3>Bistrô Café Club</h3>
-
-            <p></p>
-
-            <a href="" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
-
     <!-- GRÃO-PARÁ -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Batista Campos">
 
         <div class="event-image">
             <img src="graoparacafe.jpeg" alt="Grão-Pará Café & Bistrô">
@@ -1207,7 +1106,7 @@ body{
 
     <!-- BEE PATISSERIE -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Umarizal">
 
         <div class="event-image">
             <img src="bee.jpeg" alt="Bee Pâtisserie Boulangerie">
@@ -1232,21 +1131,21 @@ body{
 
     <!-- CATARINA -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Nazaré">
 
         <div class="event-image">
-            <img src="catarina.jpeg" alt="Catarina Café & Bistrô">
+            <img src="zu1.jpeg" alt="Café da Zú">
         </div>
 
         <div class="event-content">
 
             <span class="event-day">CAFETERIA</span>
 
-            <h3>Catarina Café & Bistrô</h3>
+            <h3>Café da Zú</h3>
 
             <p></p>
 
-            <a href="catarinacafe.html" class="card-btn">
+            <a href="cafedazu.html" class="card-btn">
                 Saiba mais
             </a>
 
@@ -1257,7 +1156,7 @@ body{
 
     <!-- BORBA -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Umarizal">
 
         <div class="event-image">
             <img src="borbacafe.jpeg" alt="Borba Café">
@@ -1280,34 +1179,9 @@ body{
     </div>
 
 
-    <!-- CAFÉ DO RIO -->
-
-    <div class="event-card">
-
-        <div class="event-image">
-            <img src="cafedorio.jpeg" alt="Café do Rio">
-        </div>
-
-        <div class="event-content">
-
-            <span class="event-day">CAFETERIA</span>
-
-            <h3>Café do Rio</h3>
-
-            <p></p>
-
-            <a href="cafedorio.html" class="card-btn">
-                Saiba mais
-            </a>
-
-        </div>
-
-    </div>
-
-
     <!-- ORLA COFFEE -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Icoaraci">
 
         <div class="event-image">
             <img src="orlacoffee.jpg" alt="Orla Coffee">
@@ -1332,7 +1206,7 @@ body{
 
     <!-- PIZZA DO FÁBIO -->
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Umarizal">
 
         <div class="event-image">
             <img src="pizzadofabio.jpeg" alt="Pizza do Fábio">
@@ -1354,7 +1228,7 @@ body{
 
     </div>
 
-    <div class="event-card">
+    <div class="event-card" data-neighborhood="Batista Campos">
 
         <div class="event-image">
             <img src="gpa8.jpeg" alt="Grão Pará">
@@ -1398,207 +1272,106 @@ body{
 =========================== -->
 
 <script>
-
 const searchInput = document.getElementById('searchInput');
 const filterButtons = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.event-card');
 const noResultsMsg = document.getElementById('noResultsMsg');
+const neighborhoodFilter = document.getElementById('neighborhoodFilter');
 
 let selectedCategory = 'todos';
 
-
-/* ===========================
-   PESQUISA
-=========================== */
-
-searchInput.addEventListener('input', filterPlaces);
-
-
-/* ===========================
-   BOTÕES DE CATEGORIA
-=========================== */
-
-filterButtons.forEach(button => {
-
-    button.addEventListener('click', function(){
-
-        /* Remove o active de todos */
-
-        filterButtons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        /* Ativa o botão clicado */
-
-        this.classList.add('active');
-
-        /* Guarda a categoria */
-
-        selectedCategory = this.getAttribute('data-category');
-
-        /* Atualiza os resultados */
-
-        filterPlaces();
-
-    });
-
-});
-
-
-/* ===========================
-   FUNÇÃO PRINCIPAL DE FILTRO
-=========================== */
-
-function filterPlaces(){
-
-    const searchText = searchInput.value
+function normalizeText(text) {
+    return (text || '')
         .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
-    let visibleCount = 0;
-
-
-    cards.forEach(card => {
-
-        /*
-         * Pega o texto completo do card
-         */
-
-        const cardText = card.innerText
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-
-
-        /*
-         * Pega a categoria do card
-         */
-
-        const categoryElement = card.querySelector('.event-day');
-
-        const category = categoryElement
-            ? categoryElement.innerText
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-            : "";
-
-
-        /*
-         * Verifica a pesquisa
-         */
-
-        const matchesSearch =
-            cardText.includes(searchText);
-
-
-        /*
-         * Verifica a categoria
-         */
-
-        let matchesCategory = true;
-
-
-        if(selectedCategory !== 'todos'){
-
-            switch(selectedCategory){
-
-                case 'restaurante':
-
-                    matchesCategory =
-                        category.includes('restaurante');
-
-                    break;
-
-
-                case 'cafeteria':
-
-                    matchesCategory =
-                        category.includes('cafeteria');
-
-                    break;
-
-
-                case 'italiano':
-
-                    matchesCategory =
-                        category.includes('italiano');
-
-                    break;
-
-
-                case 'coreano':
-
-                    matchesCategory =
-                        category.includes('coreano');
-
-                    break;
-
-
-                case 'churrascaria':
-
-                    matchesCategory =
-                        category.includes('churrascaria');
-
-                    break;
-
-
-                case 'pizzaria':
-
-                    matchesCategory =
-                        category.includes('pizzaria');
-
-                    break;
-
-
-                case 'bar':
-
-                    matchesCategory =
-                        category.includes('bar');
-
-                    break;
-
-            }
-
-        }
-
-
-        /*
-         * Mostra ou esconde o card
-         */
-
-        if(matchesSearch && matchesCategory){
-
-            card.style.display = "";
-
-            visibleCount++;
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-
-    /*
-     * Mensagem de nenhum resultado
-     */
-
-    if(visibleCount === 0){
-
-        noResultsMsg.style.display = "block";
-
-    }else{
-
-        noResultsMsg.style.display = "none";
-
-    }
-
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
 }
 
+/* Pesquisa por nome, categoria ou texto presente no card */
+searchInput.addEventListener('input', filterPlaces);
+
+/* Botões de categoria */
+filterButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        selectedCategory = this.getAttribute('data-category');
+        filterPlaces();
+    });
+});
+
+/* Filtro por bairro */
+neighborhoodFilter.addEventListener('change', filterPlaces);
+
+/* Filtro combinado: pesquisa + categoria + bairro */
+function filterPlaces() {
+    const searchText = normalizeText(searchInput.value);
+    const selectedNeighborhood = normalizeText(neighborhoodFilter.value);
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const cardText = normalizeText(card.innerText);
+        const categoryElement = card.querySelector('.event-day');
+        const category = normalizeText(categoryElement ? categoryElement.innerText : '');
+        const cardNeighborhood = normalizeText(card.dataset.neighborhood || '');
+
+        const matchesSearch = cardText.includes(searchText);
+
+        let matchesCategory = true;
+        if (selectedCategory !== 'todos') {
+            switch (selectedCategory) {
+                case 'restaurante':
+                    matchesCategory = category.includes('restaurante');
+                    break;
+                case 'cafeteria':
+                    matchesCategory = category.includes('cafeteria');
+                    break;
+                case 'italiano':
+                    matchesCategory = category.includes('italiano');
+                    break;
+                case 'coreano':
+                    matchesCategory = category.includes('coreano');
+                    break;
+                case 'churrascaria':
+                    matchesCategory = category.includes('churrascaria');
+                    break;
+                case 'pizzaria':
+                    matchesCategory = category.includes('pizzaria');
+                    break;
+                case 'bar':
+                    matchesCategory = category.includes('bar');
+                    break;
+                case 'açaiteria':
+                    matchesCategory = category.includes('açaiteria');
+                    break;
+                default:
+                    matchesCategory = true;
+            }
+        }
+
+        /*
+          IMPORTANTE:
+          Cada card precisa receber o bairro correto no atributo
+          data-neighborhood. Exemplo:
+          <div class="event-card" data-neighborhood="umarizal">
+          Até preencher o bairro, o estabelecimento aparece em "Todos os bairros",
+          mas não será mostrado quando um bairro específico for selecionado.
+        */
+        const matchesNeighborhood =
+            selectedNeighborhood === 'todos' ||
+            cardNeighborhood === selectedNeighborhood;
+
+        if (matchesSearch && matchesCategory && matchesNeighborhood) {
+            card.style.display = '';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+}
 </script>
 
 </body>
